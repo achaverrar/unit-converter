@@ -1,7 +1,6 @@
 package application.converters.length;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import application.converters.BaseUnitConverter;
 import application.converters.UnitTypeConverter;
