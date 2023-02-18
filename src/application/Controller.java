@@ -16,6 +16,7 @@ import java.util.List;
 import application.converters.BaseUnitConverter;
 import application.converters.UnitTypeConverter;
 import application.converters.length.LengthConverter;
+import application.converters.temperature.TemperatureConverter;
 import application.converters.volume.VolumeConverter;
 
 public class Controller {
@@ -36,9 +37,11 @@ public class Controller {
 	@FXML
 	private ComboBox<BaseUnitConverter> rightUnitTypeMenu;
 
-	private static UnitTypeConverter lengthConverter = new LengthConverter();
-	private static UnitTypeConverter volumeConverter = new VolumeConverter();
-	private List<UnitTypeConverter> allUnitTypeConverters = Arrays.asList(lengthConverter, volumeConverter);
+	private List<UnitTypeConverter> allUnitTypeConverters = Arrays.asList(
+			new LengthConverter(),
+			new VolumeConverter(),
+			new TemperatureConverter()
+			);
 
 	@FXML
 	public void initialize() {

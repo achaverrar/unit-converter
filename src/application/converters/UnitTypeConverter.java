@@ -27,14 +27,26 @@ public abstract class UnitTypeConverter {
 	}
 
 	public BigDecimal convert(BigDecimal value, BaseUnitConverter from, BaseUnitConverter to) {
-
+		// If we're converting to the same unit type, just return our value as is
 		if (to.getName().equals(from.getName())) {
 			return value.setScale(4, RoundingMode.HALF_UP);
-		} else {
+		} 
+		//If we're converting from our base unit, then we only need one conversion
+		else if (from.getName().equals(standardBaseUnit)) {
+			BigDecimal fromBase = baseUnitConverters.get(to.getName()).convertFromBase(value);
+			return fromBase.setScale(4, RoundingMode.HALF_UP);
+		}
+		// If we're not converting from our base unit...
+		else {
+			// Then first convert to our base unit
 			BigDecimal base = baseUnitConverters.get(from.getName()).convertToBase(value);
+			
+			// If we're converting to our base unit, then we can just return this value
 			if (to.getName().equals(standardBaseUnit)) {
 				return base.setScale(4, RoundingMode.HALF_UP);
-			} else {
+			} 
+			// Else, now we need to convert from our base unit to the unit we're converting to
+			else {
 				BigDecimal fromBase = baseUnitConverters.get(to.getName()).convertFromBase(base);
 				return fromBase.setScale(4, RoundingMode.HALF_UP);
 			}
