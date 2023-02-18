@@ -1,5 +1,7 @@
 package application;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -14,6 +16,7 @@ import java.util.List;
 import application.converters.BaseUnitConverter;
 import application.converters.UnitTypeConverter;
 import application.converters.length.LengthConverter;
+import application.converters.volume.VolumeConverter;
 
 public class Controller {
 
@@ -34,15 +37,12 @@ public class Controller {
 	private ComboBox<BaseUnitConverter> rightUnitTypeMenu;
 
 	private static UnitTypeConverter lengthConverter = new LengthConverter();
-	private List<UnitTypeConverter> allUnitTypeConverters = Arrays.asList(lengthConverter);
+	private static UnitTypeConverter volumeConverter = new VolumeConverter();
+	private List<UnitTypeConverter> allUnitTypeConverters = Arrays.asList(lengthConverter, volumeConverter);
 
 	@FXML
 	public void initialize() {
-		/*
-		 * unitTypeMenu.getItems().addAll("Currency", "Temperature", "Length");
-		 * leftUnitTypeMenu.getItems().addAll("Unit 1", "Unit 2", "Unit 3");
-		 * rightUnitTypeMenu.getItems().addAll("Unit 4", "Unit 5", "Unit 6");
-		 */
+		
 		unitTypeMenu.getItems().addAll(allUnitTypeConverters);
 		unitTypeMenu.getSelectionModel().selectFirst();
 		unitTypeMenu.setConverter(new StringConverter<UnitTypeConverter>() {
@@ -74,7 +74,7 @@ public class Controller {
 
 			@Override
 			public String toString(BaseUnitConverter converter) {
-				return converter.getName();
+				return converter == null ? null: converter.getName();
 			}
 
 		};
@@ -85,7 +85,16 @@ public class Controller {
 
 	// Event handlers
 	public void onUnitTypeChange(ActionEvent e) {
-		System.out.println("unit type changed");
+		ObservableList<BaseUnitConverter> newBaseConverters = FXCollections.observableArrayList(unitTypeMenu.getValue().getBaseUnitConvertersList());
+		
+		leftTextField.setText("");
+		rightTextField.setText("");
+		
+		leftUnitTypeMenu.setItems(newBaseConverters);
+		rightUnitTypeMenu.setItems(newBaseConverters);
+		
+		leftUnitTypeMenu.getSelectionModel().select(0);
+		rightUnitTypeMenu.getSelectionModel().select(1);
 	}
 
 	public void onLeftUnitMenuChange(ActionEvent e) {
