@@ -4,15 +4,15 @@ import java.math.BigDecimal;
 
 import application.converters.BaseUnitConverter;
 
-public class FootConverter extends BaseUnitConverter{
+public class InchConverter extends BaseUnitConverter{
 
-	public FootConverter() {
-		this.MULTIPLIER = new BigDecimal(0.3048);
+	public InchConverter() {
+		this.MULTIPLIER = new BigDecimal(0.0254);
 	}
 	
 	@Override
 	public String getName() {
-		return "Feet";
+		return "Inches";
 	}
 	
 }

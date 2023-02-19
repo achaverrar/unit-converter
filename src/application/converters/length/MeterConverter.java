@@ -12,7 +12,7 @@ public class MeterConverter extends BaseUnitConverter{
 	
 	@Override
 	public String getName() {
-		return "Meter";
+		return "Meters";
 	}
 	
 }
