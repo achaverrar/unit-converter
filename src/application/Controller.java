@@ -15,8 +15,12 @@ import java.util.List;
 
 import application.converters.BaseUnitConverter;
 import application.converters.UnitTypeConverter;
+import application.converters.currency.CurrencyConverter;
 import application.converters.length.LengthConverter;
+import application.converters.mass.MassConverter;
+import application.converters.speed.SpeedConverter;
 import application.converters.temperature.TemperatureConverter;
+import application.converters.time.TimeConverter;
 import application.converters.volume.VolumeConverter;
 
 public class Controller {
@@ -38,9 +42,13 @@ public class Controller {
 	private ComboBox<BaseUnitConverter> rightUnitTypeMenu;
 
 	private List<UnitTypeConverter> allUnitTypeConverters = Arrays.asList(
+			new CurrencyConverter(),
 			new LengthConverter(),
-			new VolumeConverter(),
-			new TemperatureConverter()
+			new MassConverter(),
+			new SpeedConverter(),
+			new TemperatureConverter(),
+			new TimeConverter(),
+			new VolumeConverter()
 			);
 
 	@FXML
