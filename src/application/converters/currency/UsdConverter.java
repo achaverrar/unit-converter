@@ -2,12 +2,10 @@ package application.converters.currency;
 
 import java.math.BigDecimal;
 
-import application.converters.BaseUnitConverter;
-
-public class UsdConverter extends BaseUnitConverter {
+public class UsdConverter extends CurrencyUnitConverter {
 
 	public UsdConverter() {
-		this.MULTIPLIER = new BigDecimal(4883.08);
+		this.MULTIPLIER = new BigDecimal(0.000207);
 	}
 	
 	@Override

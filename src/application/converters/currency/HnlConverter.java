@@ -2,12 +2,10 @@ package application.converters.currency;
 
 import java.math.BigDecimal;
 
-import application.converters.BaseUnitConverter;
-
-public class HnlConverter extends BaseUnitConverter {
+public class HnlConverter extends CurrencyUnitConverter {
 
 	public HnlConverter() {
-		this.MULTIPLIER = new BigDecimal(199.96);
+		this.MULTIPLIER = new BigDecimal(0.0051);
 	}
 	
 	public HnlConverter(BigDecimal value) {

@@ -2,12 +2,10 @@ package application.converters.currency;
 
 import java.math.BigDecimal;
 
-import application.converters.BaseUnitConverter;
-
-public class PenConverter extends BaseUnitConverter {
+public class PenConverter extends CurrencyUnitConverter {
 
 	public PenConverter() {
-		this.MULTIPLIER = new BigDecimal(1280.19);
+		this.MULTIPLIER = new BigDecimal(0.000797);
 	}
 	
 	public PenConverter(BigDecimal value) {

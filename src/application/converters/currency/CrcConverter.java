@@ -2,12 +2,10 @@ package application.converters.currency;
 
 import java.math.BigDecimal;
 
-import application.converters.BaseUnitConverter;
-
-public class CrcConverter extends BaseUnitConverter {
+public class CrcConverter extends CurrencyUnitConverter {
 
 	public CrcConverter() {
-		this.MULTIPLIER = new BigDecimal(8.82);
+		this.MULTIPLIER = new BigDecimal(0.117);
 	}
 	
 	public CrcConverter(BigDecimal value) {

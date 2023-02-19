@@ -2,12 +2,10 @@ package application.converters.currency;
 
 import java.math.BigDecimal;
 
-import application.converters.BaseUnitConverter;
-
-public class DopConverter extends BaseUnitConverter {
+public class DopConverter extends CurrencyUnitConverter {
 
 	public DopConverter() {
-		this.MULTIPLIER = new BigDecimal(87.97);
+		this.MULTIPLIER = new BigDecimal(0.0116);
 	}
 	
 	public DopConverter(BigDecimal value) {

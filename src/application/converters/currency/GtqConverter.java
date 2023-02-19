@@ -2,12 +2,10 @@ package application.converters.currency;
 
 import java.math.BigDecimal;
 
-import application.converters.BaseUnitConverter;
-
-public class GtqConverter extends BaseUnitConverter {
+public class GtqConverter extends CurrencyUnitConverter {
 
 	public GtqConverter() {
-		this.MULTIPLIER = new BigDecimal(630.03);
+		this.MULTIPLIER = new BigDecimal(0.00162);
 	}
 	
 	public GtqConverter(BigDecimal value) {

@@ -2,12 +2,10 @@ package application.converters.currency;
 
 import java.math.BigDecimal;
 
-import application.converters.BaseUnitConverter;
-
-public class ArsConverter extends BaseUnitConverter {
+public class ArsConverter extends CurrencyUnitConverter {
 
 	public ArsConverter() {
-		this.MULTIPLIER = new BigDecimal(25.35);
+		this.MULTIPLIER = new BigDecimal(0.0398);
 	}
 	
 	public ArsConverter(BigDecimal value) {

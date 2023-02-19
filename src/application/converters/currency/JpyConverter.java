@@ -2,12 +2,10 @@ package application.converters.currency;
 
 import java.math.BigDecimal;
 
-import application.converters.BaseUnitConverter;
-
-public class JpyConverter extends BaseUnitConverter {
+public class JpyConverter extends CurrencyUnitConverter {
 
 	public JpyConverter() {
-		this.MULTIPLIER = new BigDecimal(36.41);
+		this.MULTIPLIER = new BigDecimal(0.0275);
 	}
 	
 	public JpyConverter(BigDecimal value) {

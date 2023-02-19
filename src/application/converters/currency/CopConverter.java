@@ -2,9 +2,7 @@ package application.converters.currency;
 
 import java.math.BigDecimal;
 
-import application.converters.BaseUnitConverter;
-
-public class CopConverter extends BaseUnitConverter {
+public class CopConverter extends CurrencyUnitConverter {
 
 	public CopConverter() {
 		this.MULTIPLIER = new BigDecimal(1);
