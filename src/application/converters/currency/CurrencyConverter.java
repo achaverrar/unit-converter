@@ -1,5 +1,6 @@
 package application.converters.currency;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 
 import application.converters.BaseUnitConverter;
@@ -22,7 +23,6 @@ public class CurrencyConverter extends UnitTypeConverter {
 	private static BaseUnitConverter mxnConverter = new MxnConverter();
 	private static BaseUnitConverter pabConverter = new PabConverter();
 	private static BaseUnitConverter penConverter = new PenConverter();
-	private static BaseUnitConverter svcConverter = new SvcConverter();
 
 	
 	public CurrencyConverter() {
@@ -43,7 +43,6 @@ public class CurrencyConverter extends UnitTypeConverter {
 				put(mxnConverter.getName(), mxnConverter);
 				put(pabConverter.getName(), pabConverter);
 				put(penConverter.getName(), penConverter);
-				put(svcConverter.getName(), svcConverter);
 			}
 		});
 	}
