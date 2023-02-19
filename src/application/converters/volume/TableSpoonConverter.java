@@ -4,15 +4,15 @@ import java.math.BigDecimal;
 
 import application.converters.BaseUnitConverter;
 
-public class LiterConverter extends BaseUnitConverter{
+public class TableSpoonConverter extends BaseUnitConverter{
 
-	public LiterConverter() {
-		this.MULTIPLIER = new BigDecimal(1);
+	public TableSpoonConverter() {
+		this.MULTIPLIER = new BigDecimal(0.0147868);
 	}
 	
 	@Override
 	public String getName() {
-		return "Liters";
+		return "Tablespoons";
 	}
 	
 }

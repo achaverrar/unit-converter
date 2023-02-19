@@ -7,12 +7,12 @@ import application.converters.BaseUnitConverter;
 public class GallonConverter extends BaseUnitConverter{
 
 	public GallonConverter() {
-		this.MULTIPLIER = new BigDecimal(3.785);
+		this.MULTIPLIER = new BigDecimal(3.78541);
 	}
 	
 	@Override
 	public String getName() {
-		return "Gallon";
+		return "Gallons";
 	}
 	
 }

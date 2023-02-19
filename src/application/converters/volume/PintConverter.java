@@ -4,15 +4,15 @@ import java.math.BigDecimal;
 
 import application.converters.BaseUnitConverter;
 
-public class LiterConverter extends BaseUnitConverter{
+public class PintConverter extends BaseUnitConverter{
 
-	public LiterConverter() {
-		this.MULTIPLIER = new BigDecimal(1);
+	public PintConverter() {
+		this.MULTIPLIER = new BigDecimal(0.473176);
 	}
 	
 	@Override
 	public String getName() {
-		return "Liters";
+		return "Pints";
 	}
 	
 }

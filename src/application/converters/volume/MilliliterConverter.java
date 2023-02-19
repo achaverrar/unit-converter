@@ -4,15 +4,15 @@ import java.math.BigDecimal;
 
 import application.converters.BaseUnitConverter;
 
-public class LiterConverter extends BaseUnitConverter{
+public class MilliliterConverter extends BaseUnitConverter{
 
-	public LiterConverter() {
-		this.MULTIPLIER = new BigDecimal(1);
+	public MilliliterConverter() {
+		this.MULTIPLIER = new BigDecimal(0.001);
 	}
 	
 	@Override
 	public String getName() {
-		return "Liters";
+		return "Milliliters";
 	}
 	
 }
