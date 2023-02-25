@@ -19,14 +19,12 @@ import org.json.JSONObject;
 public class Test {
 
 	public static void main(String[] args) {
-		HashMap<Integer, String> currencyCodes = new HashMap<>();
-		// All currency codes
-		currencyCodes.put(1, "USD");
-		currencyCodes.put(2, "COL");
-		currencyCodes.put(3, "EUR");
-		currencyCodes.put(4, "MXN");
-
-		StringBuffer data = new StringBuffer();
+		String url = "https://api.exchangerate-api.com/v4/latest/USD";
+		String path = "./currency.txt";
+		
+		Connection con = new Connection(url, path);
+		con.getData();
+		/*StringBuffer data = new StringBuffer();
 		try {
 			File oldLogCurrencies = new File("./currency.txt");
 			Scanner reader = new Scanner(oldLogCurrencies);
@@ -85,7 +83,7 @@ public class Test {
 			System.out.println(unknownException);
 
 		} finally {
-		}
+		}*/
 
 	}
 }
