@@ -5,11 +5,13 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -19,11 +21,17 @@ import org.json.JSONObject;
 public class Test {
 
 	public static void main(String[] args) {
-		String url = "https://api.exchangerate-api.com/v4/latest/USD";
+		String url = "https://api.exchangerate-api.com/v4/latest/COP";
 		String path = "./currency.txt";
 		
-		Connection con = new Connection(url, path);
-		con.getData();
+		try {
+			Connection con = new Connection(url, path);
+			JSONObject json = con.getData();
+			BigDecimal exchangeRate = (BigDecimal) json.getJSONObject("rates").get("EUR");
+			System.out.println(exchangeRate);
+		} catch (Exception exception) {
+			System.out.println(exception);
+		}
 		/*StringBuffer data = new StringBuffer();
 		try {
 			File oldLogCurrencies = new File("./currency.txt");
@@ -82,8 +90,7 @@ public class Test {
 
 			System.out.println(unknownException);
 
-		} finally {
-		}*/
+		} finally {*/
 
 	}
 }
