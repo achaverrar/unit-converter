@@ -2,29 +2,30 @@ package application.converters.currency;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
+import java.util.Map;
 
 import application.converters.BaseUnitConverter;
 import application.converters.UnitTypeConverter;
 
 public class CurrencyConverter extends UnitTypeConverter {
-
-	private static BaseUnitConverter usdConverter = new UsdConverter();
-	private static BaseUnitConverter copConverter = new CopConverter();
-	private static BaseUnitConverter eurConverter = new EurConverter();
-	private static BaseUnitConverter gbpConverter = new GbpConverter();
-	private static BaseUnitConverter jpyConverter = new JpyConverter();
-	private static BaseUnitConverter krwConverter = new KrwConverter();
-	private static BaseUnitConverter arsConverter = new ArsConverter();
-	private static BaseUnitConverter clpConverter = new ClpConverter();
-	private static BaseUnitConverter crcConverter = new CrcConverter();
-	private static BaseUnitConverter dopConverter = new DopConverter();
-	private static BaseUnitConverter gtqConverter = new GtqConverter();
-	private static BaseUnitConverter hnlConverter = new HnlConverter();
-	private static BaseUnitConverter mxnConverter = new MxnConverter();
-	private static BaseUnitConverter pabConverter = new PabConverter();
-	private static BaseUnitConverter penConverter = new PenConverter();
-
-	
+	private static String baseCurrency = "Colombian Pesos";
+	private Map<String,Object> x;
+	private static CurrencyUnitConverter usdConverter = new UsdConverter();
+	private static CurrencyUnitConverter copConverter = new CopConverter();
+	private static CurrencyUnitConverter eurConverter = new EurConverter();
+	private static CurrencyUnitConverter gbpConverter = new GbpConverter();
+	private static CurrencyUnitConverter jpyConverter = new JpyConverter();
+	private static CurrencyUnitConverter krwConverter = new KrwConverter();
+	private static CurrencyUnitConverter arsConverter = new ArsConverter();
+	private static CurrencyUnitConverter clpConverter = new ClpConverter();
+	private static CurrencyUnitConverter crcConverter = new CrcConverter();
+	private static CurrencyUnitConverter dopConverter = new DopConverter();
+	private static CurrencyUnitConverter gtqConverter = new GtqConverter();
+	private static CurrencyUnitConverter hnlConverter = new HnlConverter();
+	private static CurrencyUnitConverter mxnConverter = new MxnConverter();
+	private static CurrencyUnitConverter pabConverter = new PabConverter();
+	private static CurrencyUnitConverter penConverter = new PenConverter();
+		
 	public CurrencyConverter() {
 		super("Colombian Pesos", new HashMap<String, BaseUnitConverter>() {
 			{
