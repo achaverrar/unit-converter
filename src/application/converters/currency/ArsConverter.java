@@ -8,13 +8,14 @@ public class ArsConverter extends CurrencyUnitConverter {
 		this.MULTIPLIER = new BigDecimal(0.0398);
 	}
 	
-	public ArsConverter(BigDecimal value) {
-		this.MULTIPLIER = value;
-	}
-	
 	@Override
 	public String getName() {
 		return "Argentine Pesos";
+	}
+
+	@Override
+	public String getCurrencyCode() {
+		return "ARS";
 	}
 
 }

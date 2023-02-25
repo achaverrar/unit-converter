@@ -8,13 +8,14 @@ public class MxnConverter extends CurrencyUnitConverter {
 		this.MULTIPLIER = new BigDecimal(0.00381);
 	}
 	
-	public MxnConverter(BigDecimal value) {
-		this.MULTIPLIER = value;
-	}
-	
 	@Override
 	public String getName() {
 		return "Mexican Pesos";
+	}
+
+	@Override
+	public String getCurrencyCode() {
+		return "MXN";
 	}
 
 }

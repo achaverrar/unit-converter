@@ -8,13 +8,14 @@ public class PabConverter extends CurrencyUnitConverter {
 		this.MULTIPLIER = new BigDecimal(0.000207);
 	}
 	
-	public PabConverter(BigDecimal value) {
-		this.MULTIPLIER = value;
-	}
-	
 	@Override
 	public String getName() {
 		return "Panamanian Balboas";
+	}
+
+	@Override
+	public String getCurrencyCode() {
+		return "PAB";
 	}
 
 }

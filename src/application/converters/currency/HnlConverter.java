@@ -8,13 +8,14 @@ public class HnlConverter extends CurrencyUnitConverter {
 		this.MULTIPLIER = new BigDecimal(0.0051);
 	}
 	
-	public HnlConverter(BigDecimal value) {
-		this.MULTIPLIER = value;
-	}
-	
 	@Override
 	public String getName() {
 		return "Honduran Lempiras";
 	}
 
+	@Override
+	public String getCurrencyCode() {
+		return "HNL";
+	}
+	
 }

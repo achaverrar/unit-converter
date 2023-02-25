@@ -17,4 +17,8 @@ public class GtqConverter extends CurrencyUnitConverter {
 		return "Guatemalan Quetzals";
 	}
 
+	@Override
+	public String getCurrencyCode() {
+		return "GTQ";
+	}
 }

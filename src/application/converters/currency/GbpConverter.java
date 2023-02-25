@@ -8,13 +8,15 @@ public class GbpConverter extends CurrencyUnitConverter {
 		this.MULTIPLIER = new BigDecimal(0.00017);
 	}
 	
-	public GbpConverter(BigDecimal value) {
-		this.MULTIPLIER = value;
-	}
-	
 	@Override
 	public String getName() {
 		return "British Pounds";
 	}
 
+
+	@Override
+	public String getCurrencyCode() {
+		return "GBP";
+	}
+	
 }

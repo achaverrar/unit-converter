@@ -8,13 +8,14 @@ public class CopConverter extends CurrencyUnitConverter {
 		this.MULTIPLIER = new BigDecimal(1);
 	}
 	
-	public CopConverter(BigDecimal value) {
-		this.MULTIPLIER = value;
-	}
-	
 	@Override
 	public String getName() {
 		return "Colombian Pesos";
 	}
 
+	@Override
+	public String getCurrencyCode() {
+		return "COP";
+	}
+	
 }

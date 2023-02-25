@@ -8,13 +8,14 @@ public class CrcConverter extends CurrencyUnitConverter {
 		this.MULTIPLIER = new BigDecimal(0.117);
 	}
 	
-	public CrcConverter(BigDecimal value) {
-		this.MULTIPLIER = value;
-	}
-	
 	@Override
 	public String getName() {
 		return "Costa Rican Colons";
+	}
+	
+	@Override
+	public String getCurrencyCode() {
+		return "CRC";
 	}
 
 }

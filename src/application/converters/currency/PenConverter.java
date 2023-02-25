@@ -8,13 +8,14 @@ public class PenConverter extends CurrencyUnitConverter {
 		this.MULTIPLIER = new BigDecimal(0.000797);
 	}
 	
-	public PenConverter(BigDecimal value) {
-		this.MULTIPLIER = value;
-	}
-	
 	@Override
 	public String getName() {
 		return "Peruvian Soles";
+	}
+
+	@Override
+	public String getCurrencyCode() {
+		return "PEN";
 	}
 
 }

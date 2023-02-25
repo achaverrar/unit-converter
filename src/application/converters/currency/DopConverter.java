@@ -8,13 +8,14 @@ public class DopConverter extends CurrencyUnitConverter {
 		this.MULTIPLIER = new BigDecimal(0.0116);
 	}
 	
-	public DopConverter(BigDecimal value) {
-		this.MULTIPLIER = value;
-	}
-	
 	@Override
 	public String getName() {
 		return "Dominican Pesos";
 	}
 
+	@Override
+	public String getCurrencyCode() {
+		return "DOP";
+	}
+	
 }

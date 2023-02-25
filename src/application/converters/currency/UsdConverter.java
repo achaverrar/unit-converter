@@ -13,4 +13,9 @@ public class UsdConverter extends CurrencyUnitConverter {
 		return "United States Dollars";
 	}
 
+	@Override
+	public String getCurrencyCode() {
+		return "USD";
+	}
+
 }
