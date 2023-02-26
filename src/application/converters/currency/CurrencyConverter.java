@@ -4,44 +4,51 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+import org.json.JSONObject;
 
 import application.converters.BaseUnitConverter;
 import application.converters.UnitTypeConverter;
 
 public class CurrencyConverter extends UnitTypeConverter {
 	private static String baseCurrency = "Colombian Pesos";
-	
-	private static List<CurrencyUnitConverter> currencyConverters = Arrays.asList(
-			new UsdConverter(),
-			new CopConverter(),
-			new EurConverter(),
-			new GbpConverter(),
-			new JpyConverter(),
-			new KrwConverter(),
-			new ArsConverter(),
-			new ClpConverter(),
-			new CrcConverter(),
-			new DopConverter(),
-			new GtqConverter(),
-			new HnlConverter(),
-			new MxnConverter(),
-			new PabConverter(),
-			new PenConverter()
-			);
-	
+	private static String url = "https://api.exchangerate-api.com/v4/latest/COP";
+	private static String path = "./currency.txt";
+
+	private static List<CurrencyUnitConverter> currencyConverters = Arrays.asList(new ArsConverter(),
+			new ClpConverter(), new CopConverter(), new CrcConverter(), new DopConverter(), new EurConverter(),
+			new GbpConverter(), new GtqConverter(), new HnlConverter(), new JpyConverter(), new KrwConverter(),
+			new MxnConverter(), new PabConverter(), new PenConverter(), new UsdConverter());
+
+	public static void updateMULTIPLIERS() {
+		try {
+			Connection connection = new Connection(url, path);
+			JSONObject rawJSON = connection.getData();
+			JSONObject exchangeRates = rawJSON.getJSONObject("rates");
+			currencyConverters.forEach(converter -> {
+				if (converter.getName() == baseCurrency) return;
+
+				BigDecimal exchangeRate = (BigDecimal) exchangeRates.get(converter.getCurrencyCode());
+				converter.setMULTIPLIER(exchangeRate);
+			});
+		} catch (Exception exception) {
+			System.out.println(exception);
+		}
+	}
+
 	public static HashMap<String, BaseUnitConverter> createHashMap() {
 		HashMap<String, BaseUnitConverter> newHashMap = new HashMap<>();
-		
-		currencyConverters.forEach(converter ->{
+
+		currencyConverters.forEach(converter -> {
 			newHashMap.put(converter.getName(), converter);
 		});
-		
+
 		return newHashMap;
 	}
-	
+
 	public CurrencyConverter() {
 		super(baseCurrency, createHashMap());
+		updateMULTIPLIERS();
 	}
 
 	@Override
