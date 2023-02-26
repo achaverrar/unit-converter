@@ -24,16 +24,8 @@ import java.util.Scanner;
 import org.json.JSONObject;
 
 public class Connection {
-	private StringBuffer data;
-	// private String path="./currency.txt";
-	private String path = "./currncy.txt";
-	private String url = "https://api.exchangerate-api.com/v4/latest/USD";
-
-	public Connection(String url, String path) {
-		this.path = path;
-		this.url = url;
-		this.data = new StringBuffer();
-	}
+	private String url = "https://api.exchangerate-api.com/v4/latest/COP";
+	private String path = "./currency.txt";
 
 	public JSONObject getExternalData() throws FileNotFoundException, IOException {
 		File logInComputer = new File(this.path);

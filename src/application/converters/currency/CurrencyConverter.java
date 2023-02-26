@@ -13,8 +13,6 @@ import application.converters.UnitTypeConverter;
 
 public class CurrencyConverter extends UnitTypeConverter {
 	private static String baseCurrency = "Colombian Pesos";
-	private static String url = "https://api.exchangerate-api.com/v4/latest/COP";
-	private static String path = "./currency.txt";
 	private static JSONObject exchangeRates = new JSONObject();
 
 	private static List<CurrencyUnitConverter> currencyConverters = Arrays.asList(new ArsConverter(),
@@ -45,7 +43,7 @@ public class CurrencyConverter extends UnitTypeConverter {
 	
 	public static void HandleExternalData() {
 		try {
-			Connection connection = new Connection(url, path);
+			Connection connection = new Connection();
 			JSONObject externalData = connection.getExternalData();
 			connection.writeFileFromJSON(externalData);
 			exchangeRates = externalData.getJSONObject("rates");
