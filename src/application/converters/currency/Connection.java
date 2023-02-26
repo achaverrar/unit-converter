@@ -35,8 +35,7 @@ public class Connection {
 		JSONObject jsonFromFile, jsonFromAPI;
 		if (logInComputer.exists()) {
 			jsonFromFile = getJSONFromFile(logInComputer);
-			String dateFromFile = jsonFromFile.get("date").toString();
-			if (isDateToday(dateFromFile)) {
+			if (isFileUpToDate()) {
 				return jsonFromFile;
 			} else {
 				try {
@@ -98,17 +97,6 @@ public class Connection {
 		}
 	}
 
-	public boolean isDateToday(String date) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		Date today = new Date();
-		try {
-			Date dateToCheck = sdf.parse(date);
-			return sdf.format(today).equals(sdf.format(dateToCheck));
-		} catch (ParseException e) {
-			return false;
-		}
-	}
-
 	public boolean isFileUpToDate() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -124,6 +112,15 @@ public class Connection {
 
 	}
 	
+	public void updateFile() {
+
+		if (jsonFromAPI == null) return;
+
+		if (jsonFromFile != null && isFileUpToDate()) return;
+
+		writeFileFromJSON(jsonFromAPI);
+	}
+
 }
 
 // MalformedURLException

@@ -41,11 +41,11 @@ public class CurrencyConverter extends UnitTypeConverter {
 		return newHashMap;
 	}
 	
-	public static void HandleExternalData() {
+	public static void handleExternalData() {
 		try {
 			Connection connection = new Connection();
 			JSONObject externalData = connection.getExternalData();
-			connection.writeFileFromJSON(externalData);
+			connection.updateFile();
 			exchangeRates = externalData.getJSONObject("rates");
 		} catch (IOException e){
 			System.out.println(e.getStackTrace());
@@ -54,8 +54,10 @@ public class CurrencyConverter extends UnitTypeConverter {
 
 	public CurrencyConverter() {
 		super(baseCurrency, createHashMap());
-		HandleExternalData();
-		updateMULTIPLIERS();
+		handleExternalData();
+		if(exchangeRates != null) {
+			updateMULTIPLIERS();			
+		}
 	}
 
 	@Override
