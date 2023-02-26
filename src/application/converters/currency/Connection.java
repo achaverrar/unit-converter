@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -135,7 +136,13 @@ public class Connection {
 	}
 
 	public void writeFileFromJSON(JSONObject json) {
-
+		try {
+			FileWriter writerObj = new FileWriter(this.path, false);
+			writerObj.write(json.toString());
+			writerObj.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public boolean isDateToday(String date) {
