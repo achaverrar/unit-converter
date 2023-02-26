@@ -21,11 +21,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Connection {
 	private String url = "https://api.exchangerate-api.com/v4/latest/COP";
 	private String path = "./currency.txt";
+	private static JSONObject jsonFromFile = new JSONObject();
+	private static JSONObject jsonFromAPI = new JSONObject();
 
 	public JSONObject getExternalData() throws FileNotFoundException, IOException {
 		File logInComputer = new File(this.path);
@@ -106,6 +109,21 @@ public class Connection {
 		}
 	}
 
+	public boolean isFileUpToDate() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		try {
+			Date today = new Date();
+			Date dateInFile = sdf.parse((String) jsonFromFile.get("date"));
+			
+			return sdf.format(today).equals(sdf.format(dateInFile));
+			
+		} catch (JSONException | ParseException exception) {
+			return false;
+		}
+
+	}
+	
 }
 
 // MalformedURLException
