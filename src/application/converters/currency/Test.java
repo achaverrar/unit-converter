@@ -14,6 +14,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Scanner;
 
 import org.json.JSONObject;
@@ -24,14 +26,6 @@ public class Test {
 		String url = "https://api.exchangerate-api.com/v4/latest/COP";
 		String path = "./currency.txt";
 		
-		try {
-			Connection con = new Connection(url, path);
-			JSONObject json = con.getData();
-			BigDecimal exchangeRate = (BigDecimal) json.getJSONObject("rates").get("EUR");
-			System.out.println(exchangeRate);
-		} catch (Exception exception) {
-			System.out.println(exception);
-		}
 		/*StringBuffer data = new StringBuffer();
 		try {
 			File oldLogCurrencies = new File("./currency.txt");

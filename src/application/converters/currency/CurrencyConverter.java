@@ -23,7 +23,7 @@ public class CurrencyConverter extends UnitTypeConverter {
 	public static void updateMULTIPLIERS() {
 		try {
 			Connection connection = new Connection(url, path);
-			JSONObject rawJSON = connection.getData();
+			JSONObject rawJSON = connection.getExternalData();
 			JSONObject exchangeRates = rawJSON.getJSONObject("rates");
 			currencyConverters.forEach(converter -> {
 				String currencyCode = converter.getCurrencyCode();
