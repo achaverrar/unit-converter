@@ -1,5 +1,6 @@
 package application.converters.currency;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -14,6 +15,7 @@ public class CurrencyConverter extends UnitTypeConverter {
 	private static String baseCurrency = "Colombian Pesos";
 	private static String url = "https://api.exchangerate-api.com/v4/latest/COP";
 	private static String path = "./currency.txt";
+	private static JSONObject exchangeRates = new JSONObject();
 
 	private static List<CurrencyUnitConverter> currencyConverters = Arrays.asList(new ArsConverter(),
 			new ClpConverter(), new CopConverter(), new CrcConverter(), new DopConverter(), new EurConverter(),
@@ -21,19 +23,14 @@ public class CurrencyConverter extends UnitTypeConverter {
 			new MxnConverter(), new PabConverter(), new PenConverter(), new UsdConverter());
 
 	public static void updateMULTIPLIERS() {
-		try {
-			Connection connection = new Connection(url, path);
-			JSONObject rawJSON = connection.getExternalData();
-			JSONObject exchangeRates = rawJSON.getJSONObject("rates");
-			currencyConverters.forEach(converter -> {
-				String currencyCode = converter.getCurrencyCode();
-				String stringifiedExchangeRate = exchangeRates.get(currencyCode).toString();
-				BigDecimal exchangeRate = new BigDecimal(stringifiedExchangeRate);
-				converter.setMULTIPLIER(exchangeRate);
-			});
-		} catch (Exception exception) {
-			System.out.println(exception);
-		}
+		if(exchangeRates == null) return;
+		
+		currencyConverters.forEach(converter -> {
+			String currencyCode = converter.getCurrencyCode();
+			String stringifiedExchangeRate = exchangeRates.get(currencyCode).toString();
+			BigDecimal exchangeRate = new BigDecimal(stringifiedExchangeRate);
+			converter.setMULTIPLIER(exchangeRate);
+		});
 	}
 
 	public static HashMap<String, BaseUnitConverter> createHashMap() {
@@ -45,9 +42,21 @@ public class CurrencyConverter extends UnitTypeConverter {
 
 		return newHashMap;
 	}
+	
+	public static void HandleExternalData() {
+		try {
+			Connection connection = new Connection(url, path);
+			JSONObject externalData = connection.getExternalData();
+			connection.writeFileFromJSON(externalData);
+			exchangeRates = externalData.getJSONObject("rates");
+		} catch (IOException e){
+			System.out.println(e.getStackTrace());
+		}
+	}
 
 	public CurrencyConverter() {
 		super(baseCurrency, createHashMap());
+		HandleExternalData();
 		updateMULTIPLIERS();
 	}
 
