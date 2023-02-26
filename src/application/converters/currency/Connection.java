@@ -29,48 +29,6 @@ public class Connection {
 	private String path = "./currncy.txt";
 	private String url = "https://api.exchangerate-api.com/v4/latest/USD";
 
-	public Connection() {
-		data = new StringBuffer();
-
-		try {
-			String GET_URL = "https://api.exchangerate-api.com/v4/latest/USD";
-			URL url = new URL(GET_URL);
-			HttpURLConnection request = (HttpURLConnection) url.openConnection();
-			request.setRequestMethod("GET");
-
-			if (request.getResponseCode() == HttpURLConnection.HTTP_OK) {
-				InputStream im = request.getInputStream();
-
-				BufferedReader br = new BufferedReader(new InputStreamReader(im));
-
-				// FileOutputStream newLogCurrencies = new FileOutputStream("./currency.txt");
-
-				String line = br.readLine();
-				while (line != null) {
-
-					System.out.println(line);
-					// newLogCurrencies.write(line.getBytes());
-					line = br.readLine();
-					data.append(line);
-
-				}
-
-				br.close();
-				// newLogCurrencies.flush();
-				// newLogCurrencies.close();
-				JSONObject obj = new JSONObject(data.toString());
-				BigDecimal exchangeRate = (BigDecimal) obj.getJSONObject("rates").get("COP");
-				System.out.println(exchangeRate);
-
-			}
-
-		} catch (Exception notCreatedFile) {
-
-			System.out.println(notCreatedFile);
-
-		}
-	}
-
 	public Connection(String url, String path) {
 		this.path = path;
 		this.url = url;
