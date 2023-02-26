@@ -26,9 +26,9 @@ public class CurrencyConverter extends UnitTypeConverter {
 			JSONObject rawJSON = connection.getData();
 			JSONObject exchangeRates = rawJSON.getJSONObject("rates");
 			currencyConverters.forEach(converter -> {
-				if (converter.getName() == baseCurrency) return;
-
-				BigDecimal exchangeRate = (BigDecimal) exchangeRates.get(converter.getCurrencyCode());
+				String currencyCode = converter.getCurrencyCode();
+				String stringifiedExchangeRate = exchangeRates.get(currencyCode).toString();
+				BigDecimal exchangeRate = new BigDecimal(stringifiedExchangeRate);
 				converter.setMULTIPLIER(exchangeRate);
 			});
 		} catch (Exception exception) {
