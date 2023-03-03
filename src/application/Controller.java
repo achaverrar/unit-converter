@@ -41,19 +41,13 @@ public class Controller {
 	@FXML
 	private ComboBox<BaseUnitConverter> rightUnitTypeMenu;
 
-	private List<UnitTypeConverter> allUnitTypeConverters = Arrays.asList(
-			new CurrencyConverter(),
-			new LengthConverter(),
-			new MassConverter(),
-			new SpeedConverter(),
-			new TemperatureConverter(),
-			new TimeConverter(),
-			new VolumeConverter()
-			);
+	private List<UnitTypeConverter> allUnitTypeConverters = Arrays.asList(new CurrencyConverter(),
+			new LengthConverter(), new MassConverter(), new SpeedConverter(), new TemperatureConverter(),
+			new TimeConverter(), new VolumeConverter());
 
 	@FXML
 	public void initialize() {
-		
+
 		unitTypeMenu.getItems().addAll(allUnitTypeConverters);
 		unitTypeMenu.getSelectionModel().selectFirst();
 		unitTypeMenu.setConverter(new StringConverter<UnitTypeConverter>() {
@@ -85,7 +79,7 @@ public class Controller {
 
 			@Override
 			public String toString(BaseUnitConverter converter) {
-				return converter == null ? null: converter.getName();
+				return converter == null ? null : converter.getName();
 			}
 
 		};
@@ -96,14 +90,15 @@ public class Controller {
 
 	// Event handlers
 	public void onUnitTypeChange(ActionEvent e) {
-		ObservableList<BaseUnitConverter> newBaseConverters = FXCollections.observableArrayList(unitTypeMenu.getValue().getBaseUnitConvertersList());
-		
+		ObservableList<BaseUnitConverter> newBaseConverters = FXCollections
+				.observableArrayList(unitTypeMenu.getValue().getBaseUnitConvertersList());
+
 		leftTextField.setText("");
 		rightTextField.setText("");
-		
+
 		leftUnitTypeMenu.setItems(newBaseConverters);
 		rightUnitTypeMenu.setItems(newBaseConverters);
-		
+
 		leftUnitTypeMenu.getSelectionModel().select(0);
 		rightUnitTypeMenu.getSelectionModel().select(1);
 	}
@@ -125,26 +120,36 @@ public class Controller {
 	}
 
 	private void convertLeftToRight() {
+		leftTextField.setStyle("-fx-border: none;");
 		if (leftTextField.getText().isBlank()) {
 			rightTextField.setText("");
 		} else {
 			UnitTypeConverter unitConverter = unitTypeMenu.getValue();
-			BigDecimal leftUnit = new BigDecimal(Double.parseDouble(leftTextField.getText()));
-			BigDecimal rightUnit = unitConverter.convert(leftUnit, leftUnitTypeMenu.getValue(),
-					rightUnitTypeMenu.getValue());
-			rightTextField.setText(rightUnit.stripTrailingZeros().toPlainString());
+			try {
+				BigDecimal leftUnit = new BigDecimal(Double.parseDouble(leftTextField.getText()));
+				BigDecimal rightUnit = unitConverter.convert(leftUnit, leftUnitTypeMenu.getValue(),
+						rightUnitTypeMenu.getValue());
+				rightTextField.setText(rightUnit.stripTrailingZeros().toPlainString());
+			} catch (NumberFormatException e) {
+				leftTextField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+			}
 		}
 	}
 
 	private void convertRightToLeft() {
+		rightTextField.setStyle("-fx-border: none;");
 		if (rightTextField.getText().isBlank()) {
 			leftTextField.setText("");
 		} else {
+			try {
 			UnitTypeConverter unitConverter = unitTypeMenu.getValue();
 			BigDecimal rightUnit = new BigDecimal(Double.parseDouble(rightTextField.getText()));
 			BigDecimal leftUnit = unitConverter.convert(rightUnit, rightUnitTypeMenu.getValue(),
 					leftUnitTypeMenu.getValue());
 			leftTextField.setText(leftUnit.stripTrailingZeros().toPlainString());
+			} catch (NumberFormatException e) {
+				rightTextField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+			}
 		}
 	}
 }
