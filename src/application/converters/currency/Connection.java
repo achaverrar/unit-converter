@@ -25,7 +25,6 @@ public class Connection {
 
 	public JSONObject getExternalData() throws FileNotFoundException, IOException {
 		File logInComputer = new File(this.path);
-		JSONObject jsonFromFile, jsonFromAPI;
 		if (logInComputer.exists()) {
 			jsonFromFile = getJSONFromFile(logInComputer);
 			if (isFileUpToDate()) {
