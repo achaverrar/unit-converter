@@ -131,7 +131,7 @@ public class Controller {
 						rightUnitTypeMenu.getValue());
 				rightTextField.setText(rightUnit.stripTrailingZeros().toPlainString());
 			} catch (NumberFormatException e) {
-				leftTextField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+				leftTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
 			}
 		}
 	}
@@ -148,7 +148,7 @@ public class Controller {
 					leftUnitTypeMenu.getValue());
 			leftTextField.setText(leftUnit.stripTrailingZeros().toPlainString());
 			} catch (NumberFormatException e) {
-				rightTextField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+				rightTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
 			}
 		}
 	}
