@@ -13,6 +13,7 @@ public class Main extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("Controller.fxml"));
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("Convertidor de unidades");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
