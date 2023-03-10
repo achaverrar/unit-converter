@@ -41,9 +41,9 @@ public class Controller {
 	@FXML
 	private ComboBox<BaseUnitConverter> rightUnitTypeMenu;
 
-	private List<UnitTypeConverter> allUnitTypeConverters = Arrays.asList(new CurrencyConverter(),
+	private UnitTypeConverter[] allUnitTypeConverters = new UnitTypeConverter[] {new CurrencyConverter(),
 			new LengthConverter(), new MassConverter(), new SpeedConverter(), new TemperatureConverter(),
-			new TimeConverter(), new VolumeConverter());
+			new TimeConverter(), new VolumeConverter()};
 
 	@FXML
 	public void initialize() {
