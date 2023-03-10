@@ -15,28 +15,28 @@ public class CurrencyConverter extends UnitTypeConverter {
 	private static String baseCurrency = "Colombian Pesos";
 	private static JSONObject exchangeRates = new JSONObject();
 
-	private static List<CurrencyUnitConverter> currencyConverters = Arrays.asList(new ArsConverter(),
+	private static CurrencyUnitConverter[] currencyConverters = new CurrencyUnitConverter[]{new ArsConverter(),
 			new ClpConverter(), new CopConverter(), new CrcConverter(), new DopConverter(), new EurConverter(),
 			new GbpConverter(), new GtqConverter(), new HnlConverter(), new JpyConverter(), new KrwConverter(),
-			new MxnConverter(), new PabConverter(), new PenConverter(), new UsdConverter());
+			new MxnConverter(), new PabConverter(), new PenConverter(), new UsdConverter()};
 
 	public static void updateMULTIPLIERS() {
 		if(exchangeRates == null) return;
 		
-		currencyConverters.forEach(converter -> {
+		for(CurrencyUnitConverter converter: currencyConverters) {
 			String currencyCode = converter.getCurrencyCode();
 			String stringifiedExchangeRate = exchangeRates.get(currencyCode).toString();
 			BigDecimal exchangeRate = new BigDecimal(stringifiedExchangeRate);
 			converter.setMULTIPLIER(exchangeRate);
-		});
+		}
 	}
 
 	public static HashMap<String, BaseUnitConverter> createHashMap() {
 		HashMap<String, BaseUnitConverter> newHashMap = new HashMap<>();
 
-		currencyConverters.forEach(converter -> {
+		for(CurrencyUnitConverter converter: currencyConverters) {
 			newHashMap.put(converter.getName(), converter);
-		});
+		}
 
 		return newHashMap;
 	}
