@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class Main extends Application {
 	@Override
@@ -14,6 +16,10 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Convertidor de unidades");
+			
+			Image windowIcon = new Image("icon.png");
+			primaryStage.getIcons().add(windowIcon);
+			
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
