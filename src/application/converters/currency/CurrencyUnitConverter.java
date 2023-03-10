@@ -5,18 +5,35 @@ import java.math.RoundingMode;
 
 import application.converters.BaseUnitConverter;
 
-public abstract class CurrencyUnitConverter extends BaseUnitConverter {
-	public BigDecimal convertToBase(BigDecimal value) { 
-		return value.divide(MULTIPLIER, 4, RoundingMode.HALF_UP);
+public class CurrencyUnitConverter extends BaseUnitConverter {
+	String name;
+	String CURRENCY_CODE;
+	BigDecimal CONVERSION_FACTOR;
+	
+	public CurrencyUnitConverter(String name, String currencyCode, double conversionFactor) {
+		this.name = name;
+		this.CURRENCY_CODE = currencyCode;
+		this.CONVERSION_FACTOR = new BigDecimal(conversionFactor);
+	}
+	
+	public BigDecimal convertToBase(BigDecimal value) {
+		return value.divide(CONVERSION_FACTOR, 4, RoundingMode.HALF_UP);
 	}
 	
 	public BigDecimal convertFromBase(BigDecimal value) {
-		return value.multiply(MULTIPLIER).setScale(4, RoundingMode.HALF_UP);
+		return value.multiply(CONVERSION_FACTOR).setScale(4, RoundingMode.HALF_UP);
 	}
 	
-	public void setMULTIPLIER(BigDecimal newMULTIPLIER ) {
-		this.MULTIPLIER = newMULTIPLIER;
+	public void setConversionFactor(BigDecimal newConversionFactor) {
+		this.CONVERSION_FACTOR = newConversionFactor;
 	}
 	
-	public abstract String getCurrencyCode();
+	public String getCurrencyCode() {
+		return CURRENCY_CODE;
+	}
+
+	@Override
+	public String getName() {
+		return this.name;
+	};
 }
