@@ -126,12 +126,12 @@ public class Controller {
 		} else {
 			UnitTypeConverter unitConverter = unitTypeMenu.getValue();
 			try {
-				BigDecimal leftUnit = new BigDecimal(Double.parseDouble(leftTextField.getText()));
-				BigDecimal rightUnit = unitConverter.convert(leftUnit, leftUnitTypeMenu.getValue(),
+				BigDecimal rightUnit = unitConverter.convert(leftTextField.getText(), leftUnitTypeMenu.getValue(),
 						rightUnitTypeMenu.getValue());
 				rightTextField.setText(rightUnit.stripTrailingZeros().toPlainString());
-			} catch (NumberFormatException e) {
+			} catch (InvalidInputException e) {
 				leftTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
+				System.out.println(e.getMessage());
 			}
 		}
 	}
@@ -143,12 +143,12 @@ public class Controller {
 		} else {
 			try {
 			UnitTypeConverter unitConverter = unitTypeMenu.getValue();
-			BigDecimal rightUnit = new BigDecimal(Double.parseDouble(rightTextField.getText()));
-			BigDecimal leftUnit = unitConverter.convert(rightUnit, rightUnitTypeMenu.getValue(),
+			BigDecimal leftUnit = unitConverter.convert(rightTextField.getText(), rightUnitTypeMenu.getValue(),
 					leftUnitTypeMenu.getValue());
 			leftTextField.setText(leftUnit.stripTrailingZeros().toPlainString());
-			} catch (NumberFormatException e) {
+			} catch (InvalidInputException e) {
 				rightTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
+				System.out.println(e.getMessage());
 			}
 		}
 	}

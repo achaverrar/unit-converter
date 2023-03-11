@@ -3,6 +3,7 @@ package application.converters.temperature;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+import application.InvalidInputException;
 import application.converters.BaseUnitConverter;
 
 public class RankineConverter extends BaseUnitConverter {
@@ -12,12 +13,14 @@ public class RankineConverter extends BaseUnitConverter {
 	private static final BigDecimal _5_9 = new BigDecimal(0.555556);
 	
 	@Override
-	public BigDecimal convertToBase(BigDecimal value) {
+	public BigDecimal convertToBase(String input) throws InvalidInputException {
+		BigDecimal value = formatInput(input);
 		return value.subtract(RANKINE_CONSTANT).multiply(_5_9).setScale(4, RoundingMode.HALF_UP);
 	}
 	
 	@Override
-	public BigDecimal convertFromBase(BigDecimal value) {
+	public BigDecimal convertFromBase(String input) throws InvalidInputException {
+		BigDecimal value = formatInput(input);
 		return value.multiply(_9_5).add(RANKINE_CONSTANT).setScale(4, RoundingMode.HALF_UP);
 	}
 

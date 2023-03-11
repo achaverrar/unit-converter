@@ -11,12 +11,14 @@ public abstract class BaseUnitConverter {
 	
 	public abstract String getName();
 	
-	public BigDecimal convertToBase(BigDecimal value) {
+	public BigDecimal convertToBase(String input) throws InvalidInputException {
+		BigDecimal value = formatInput(input);
 		// up to 4 decimal places, approximate to the next unit from .5 
 		return value.multiply(MULTIPLIER).setScale(4, RoundingMode.HALF_UP);
 	}
 	
-	public BigDecimal convertFromBase(BigDecimal value) {
+	public BigDecimal convertFromBase(String input) throws InvalidInputException {
+		BigDecimal value = formatInput(input);
 		return value.divide(MULTIPLIER, 4, RoundingMode.HALF_UP);
 	}
 	
@@ -26,5 +28,9 @@ public abstract class BaseUnitConverter {
 		} catch (NumberFormatException e) {
 			throw new InvalidInputException("El valor ingresado debe ser un número");
 		}
+	}
+
+	public BigDecimal convertFromBase(BigDecimal value) {
+		return value.divide(MULTIPLIER, 4, RoundingMode.HALF_UP);
 	}
 }

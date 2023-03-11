@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import application.InvalidInputException;
+
 public abstract class UnitTypeConverter {
 	private String standardBaseUnit;
 	private Map<String, BaseUnitConverter> baseUnitConverters = new HashMap<>();
@@ -26,13 +28,13 @@ public abstract class UnitTypeConverter {
 		this.baseUnitConverters = baseUnitConverters;
 	}
 
-	public BigDecimal convert(BigDecimal value, BaseUnitConverter from, BaseUnitConverter to) {
-		// If we're converting to the same unit type, just return our value as is
+	public BigDecimal convert(String value, BaseUnitConverter from, BaseUnitConverter to) throws InvalidInputException {
+		/* If we're converting to the same unit type, just return our value as is
 		if (to.getName().equals(from.getName())) {
 			return value.setScale(4, RoundingMode.HALF_UP);
-		} 
+		} */
 		//If we're converting from our base unit, then we only need one conversion
-		else if (from.getName().equals(standardBaseUnit)) {
+		if (from.getName().equals(standardBaseUnit)) {
 			BigDecimal fromBase = baseUnitConverters.get(to.getName()).convertFromBase(value);
 			return fromBase.setScale(4, RoundingMode.HALF_UP);
 		}
