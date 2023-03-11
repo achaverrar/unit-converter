@@ -16,10 +16,12 @@ public class CurrencyUnitConverter extends BaseUnitConverter {
 		this.CONVERSION_FACTOR = new BigDecimal(conversionFactor);
 	}
 	
+	@Override
 	public BigDecimal convertToBase(BigDecimal value) {
 		return value.divide(CONVERSION_FACTOR, 4, RoundingMode.HALF_UP);
 	}
 	
+	@Override
 	public BigDecimal convertFromBase(BigDecimal value) {
 		return value.multiply(CONVERSION_FACTOR).setScale(4, RoundingMode.HALF_UP);
 	}
