@@ -43,15 +43,6 @@ public class CurrencyConverter extends UnitTypeConverter {
 			converter.setConversionFactor(exchangeRate);
 		}
 	}
-	public static HashMap<String, BaseUnitConverter> createHashMap() {
-		HashMap<String, BaseUnitConverter> newHashMap = new HashMap<>();
-
-		for(CurrencyUnitConverter converter: currencyConverters) {
-			newHashMap.put(converter.getName(), converter);
-		}
-
-		return newHashMap;
-	}
 	
 	public static void handleExternalData() {
 		try {
@@ -65,7 +56,7 @@ public class CurrencyConverter extends UnitTypeConverter {
 	}
 
 	public CurrencyConverter() {
-		super(baseCurrency, createHashMap());
+		super(baseCurrency, currencyConverters);
 		handleExternalData();
 		if(exchangeRates != null) {
 			updateMULTIPLIERS();			

@@ -14,18 +14,8 @@ public class LengthConverter extends UnitTypeConverter {
 			new BaseUnitConverter("Kilometers", 1000), new BaseUnitConverter("Miles", 1609.344),
 			new BaseUnitConverter("Millimeters", 0.001) };
 
-	public static HashMap<String, BaseUnitConverter> createHashMap() {
-		HashMap<String, BaseUnitConverter> newHashMap = new HashMap<>();
-
-		for (BaseUnitConverter converter : lengthConverters) {
-			newHashMap.put(converter.getName(), converter);
-		}
-
-		return newHashMap;
-	}
-
 	public LengthConverter() {
-		super("Meters", createHashMap());
+		super("Meters", lengthConverters);
 	}
 
 	@Override

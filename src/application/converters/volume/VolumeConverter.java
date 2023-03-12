@@ -13,18 +13,8 @@ public class VolumeConverter extends UnitTypeConverter {
 			new BaseUnitConverter("Pints", 0.473176), new BaseUnitConverter("Quarts", 0.946353),
 			new BaseUnitConverter("Tablespoons", 0.0147868), new BaseUnitConverter("Teaspoons", 0.00492892) };
 
-	public static HashMap<String, BaseUnitConverter> createHashMap() {
-		HashMap<String, BaseUnitConverter> newHashMap = new HashMap<>();
-
-		for (BaseUnitConverter converter : volumeConverters) {
-			newHashMap.put(converter.getName(), converter);
-		}
-
-		return newHashMap;
-	}
-
 	public VolumeConverter() {
-		super("Liters", createHashMap());
+		super("Liters", volumeConverters);
 	}
 
 	@Override

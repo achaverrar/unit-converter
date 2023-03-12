@@ -13,18 +13,8 @@ public class TimeConverter extends UnitTypeConverter {
 			new BaseUnitConverter("Minutes", 60), new BaseUnitConverter("Months", 2628000),
 			new BaseUnitConverter("Seconds", 1.0), new BaseUnitConverter("Years", 31536000) };
 
-	public static HashMap<String, BaseUnitConverter> createHashMap() {
-		HashMap<String, BaseUnitConverter> newHashMap = new HashMap<>();
-
-		for (BaseUnitConverter converter : timeConverters) {
-			newHashMap.put(converter.getName(), converter);
-		}
-
-		return newHashMap;
-	}
-
 	public TimeConverter() {
-		super("Seconds", createHashMap());
+		super("Seconds", timeConverters);
 	}
 
 	@Override
