@@ -8,6 +8,10 @@ import application.converters.BaseUnitConverter;
 
 public class KelvinConverter extends BaseUnitConverter{
 	
+	public KelvinConverter() {
+		super("Kelvin");
+	}
+
 	private static final BigDecimal KELVIN_CONSTANT = new BigDecimal(273.15);
 	
 	@Override
@@ -22,8 +26,4 @@ public class KelvinConverter extends BaseUnitConverter{
 		return value.add(KELVIN_CONSTANT).setScale(4, RoundingMode.HALF_UP);
 	}
 
-	@Override
-	public String getName() {
-		return "Kelvin";
-	}
 }

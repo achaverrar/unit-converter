@@ -8,6 +8,10 @@ import application.converters.BaseUnitConverter;
 
 public class FahrenheitConverter extends BaseUnitConverter {
 
+	public FahrenheitConverter() {
+		super("Fahrenheit");
+	}
+
 	private static final BigDecimal _9_5 = new BigDecimal(1.8);
 	private static final BigDecimal _5_9 = new BigDecimal(0.555556);
 	private static final BigDecimal _32 = new BigDecimal(32);
@@ -22,11 +26,6 @@ public class FahrenheitConverter extends BaseUnitConverter {
 	public BigDecimal convertFromBase(String input) throws InvalidInputException {
 		BigDecimal value = formatInput(input);
 		return value.multiply(_9_5).add(_32).setScale(4, RoundingMode.HALF_UP);
-	}
-	
-	@Override
-	public String getName() {
-		return "Fahrenheit";
 	}
 	
 }

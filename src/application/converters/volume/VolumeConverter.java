@@ -7,32 +7,26 @@ import application.converters.UnitTypeConverter;
 
 public class VolumeConverter extends UnitTypeConverter {
 
-	private static BaseUnitConverter cupConverter = new CupConverter();
-	private static BaseUnitConverter fluidOunceConverter = new FluidOunceConverter();
-	private static BaseUnitConverter gallonConverter = new GallonConverter();
-	private static BaseUnitConverter literConverter = new LiterConverter();
-	private static BaseUnitConverter milliliterConverter = new MilliliterConverter();
-	private static BaseUnitConverter pintConverter = new PintConverter();
-	private static BaseUnitConverter quartConverter = new QuartConverter();
-	private static BaseUnitConverter tableSpoonConverter = new TableSpoonConverter();
-	private static BaseUnitConverter teaspoonConverter = new TeaspoonConverter();
-	
-	public VolumeConverter() {
-		super("Meter", new HashMap<String, BaseUnitConverter>() {
-			{
-				put(cupConverter.getName(), cupConverter);
-				put(fluidOunceConverter.getName(), fluidOunceConverter);
-				put(gallonConverter.getName(), gallonConverter);
-				put(literConverter.getName(), literConverter);
-				put(milliliterConverter.getName(), milliliterConverter);
-				put(pintConverter.getName(), pintConverter);
-				put(quartConverter.getName(), quartConverter);
-				put(tableSpoonConverter.getName(), tableSpoonConverter);
-				put(teaspoonConverter.getName(), teaspoonConverter);
-			}
-		});
+	private static BaseUnitConverter[] volumeConverters = new BaseUnitConverter[] { new BaseUnitConverter("Cups", 0.24),
+			new BaseUnitConverter("Fluid Ounces", 0.0295735), new BaseUnitConverter("Gallons", 3.78541),
+			new BaseUnitConverter("Liters", 1.0), new BaseUnitConverter("Milliliters", 0.001),
+			new BaseUnitConverter("Pints", 0.473176), new BaseUnitConverter("Quarts", 0.946353),
+			new BaseUnitConverter("Tablespoons", 0.0147868), new BaseUnitConverter("Teaspoons", 0.00492892) };
+
+	public static HashMap<String, BaseUnitConverter> createHashMap() {
+		HashMap<String, BaseUnitConverter> newHashMap = new HashMap<>();
+
+		for (BaseUnitConverter converter : volumeConverters) {
+			newHashMap.put(converter.getName(), converter);
+		}
+
+		return newHashMap;
 	}
-	
+
+	public VolumeConverter() {
+		super("Liters", createHashMap());
+	}
+
 	@Override
 	public String getUnitType() {
 		return "Volume";

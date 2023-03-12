@@ -7,14 +7,11 @@ import application.InvalidInputException;
 import application.converters.BaseUnitConverter;
 
 public class CurrencyUnitConverter extends BaseUnitConverter {
-	String name;
-	String CURRENCY_CODE;
-	BigDecimal CONVERSION_FACTOR;
+	private String CURRENCY_CODE;
 	
 	public CurrencyUnitConverter(String name, String currencyCode, double conversionFactor) {
-		this.name = name;
+		super(name, conversionFactor);
 		this.CURRENCY_CODE = currencyCode;
-		this.CONVERSION_FACTOR = new BigDecimal(conversionFactor);
 	}
 	
 	@Override
@@ -36,9 +33,4 @@ public class CurrencyUnitConverter extends BaseUnitConverter {
 	public String getCurrencyCode() {
 		return CURRENCY_CODE;
 	}
-
-	@Override
-	public String getName() {
-		return this.name;
-	};
 }

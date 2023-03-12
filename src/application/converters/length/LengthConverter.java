@@ -4,30 +4,30 @@ import java.util.HashMap;
 
 import application.converters.BaseUnitConverter;
 import application.converters.UnitTypeConverter;
+import application.converters.currency.CurrencyUnitConverter;
 
 public class LengthConverter extends UnitTypeConverter {
 
-	private static BaseUnitConverter meterConverter = new MeterConverter();
-	private static BaseUnitConverter footConverter = new FootConverter();
-	private static BaseUnitConverter centimeterConverter = new CentimeterConverter();
-	private static BaseUnitConverter inchConverter = new InchConverter();
-	private static BaseUnitConverter kilometerConverter = new KilometerConverter();
-	private static BaseUnitConverter mileConverter = new MileConverter();	
-	private static BaseUnitConverter millimeterConverter = new MillimeterConverter();	
-	
-	public LengthConverter() {
-		super("Meters", new HashMap<String, BaseUnitConverter>() {
-			{
-				put(meterConverter.getName(), meterConverter);
-				put(footConverter.getName(), footConverter);
-				put(centimeterConverter.getName(), centimeterConverter);
-				put(inchConverter.getName(), inchConverter);
-				put(kilometerConverter.getName(), kilometerConverter);
-				put(mileConverter.getName(), mileConverter);
-				put(millimeterConverter.getName(), millimeterConverter);
-			}
-		});
+	private static BaseUnitConverter[] lengthConverters = new BaseUnitConverter[] {
+			new BaseUnitConverter("Meters", 1.0), new BaseUnitConverter("Centimeters", 0.01),
+			new BaseUnitConverter("Feet", 0.3048), new BaseUnitConverter("Inches", 0.0254),
+			new BaseUnitConverter("Kilometers", 1000), new BaseUnitConverter("Miles", 1609.344),
+			new BaseUnitConverter("Millimeters", 0.001) };
+
+	public static HashMap<String, BaseUnitConverter> createHashMap() {
+		HashMap<String, BaseUnitConverter> newHashMap = new HashMap<>();
+
+		for (BaseUnitConverter converter : lengthConverters) {
+			newHashMap.put(converter.getName(), converter);
+		}
+
+		return newHashMap;
 	}
+
+	public LengthConverter() {
+		super("Meters", createHashMap());
+	}
+
 	@Override
 	public String getUnitType() {
 		return "Length";
