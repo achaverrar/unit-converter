@@ -130,8 +130,10 @@ public class Controller {
 						rightUnitTypeMenu.getValue());
 				rightTextField.setText(rightUnit.stripTrailingZeros().toPlainString());
 			} catch (InvalidInputException e) {
-				leftTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
-				System.out.println(e.getMessage());
+				if(!e.getMessage().equals("")) {
+					leftTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
+					System.out.println(e.getMessage());					
+				}
 			}
 		}
 	}
@@ -147,8 +149,10 @@ public class Controller {
 					leftUnitTypeMenu.getValue());
 			leftTextField.setText(leftUnit.stripTrailingZeros().toPlainString());
 			} catch (InvalidInputException e) {
-				rightTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
-				System.out.println(e.getMessage());
+				if(!e.getMessage().equals("")) {
+					rightTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
+					System.out.println(e.getMessage());					
+				}
 			}
 		}
 	}
