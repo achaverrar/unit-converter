@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.util.StringConverter;
@@ -40,6 +41,9 @@ public class Controller {
 
 	@FXML
 	private ComboBox<BaseUnitConverter> rightUnitTypeMenu;
+
+	@FXML
+	private Label errorLabel;
 
 	private UnitTypeConverter[] allUnitTypeConverters = new UnitTypeConverter[] {new CurrencyConverter(),
 			new LengthConverter(), new MassConverter(), new SpeedConverter(), new TemperatureConverter(),
@@ -121,6 +125,7 @@ public class Controller {
 
 	private void convertLeftToRight() {
 		leftTextField.setStyle("-fx-border: none;");
+		errorLabel.setText("");
 		if (leftTextField.getText().isBlank()) {
 			rightTextField.setText("");
 		} else {
@@ -132,7 +137,7 @@ public class Controller {
 			} catch (InvalidInputException e) {
 				if(!e.getMessage().equals("")) {
 					leftTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
-					System.out.println(e.getMessage());					
+					errorLabel.setText(e.getMessage());	
 				}
 			}
 		}
@@ -140,6 +145,7 @@ public class Controller {
 
 	private void convertRightToLeft() {
 		rightTextField.setStyle("-fx-border: none;");
+		errorLabel.setText("");
 		if (rightTextField.getText().isBlank()) {
 			leftTextField.setText("");
 		} else {
@@ -151,7 +157,7 @@ public class Controller {
 			} catch (InvalidInputException e) {
 				if(!e.getMessage().equals("")) {
 					rightTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
-					System.out.println(e.getMessage());					
+					errorLabel.setText(e.getMessage());					
 				}
 			}
 		}
