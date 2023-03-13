@@ -28,4 +28,9 @@ public class RankineConverter extends FullRangeBaseUnitConverter {
 		return value.multiply(_9_5).add(RANKINE_CONSTANT).setScale(4, RoundingMode.HALF_UP);
 	}
 
+	@Override
+	public BigDecimal convertFromBase(BigDecimal input) {
+		return input.multiply(_9_5).add(RANKINE_CONSTANT).setScale(4, RoundingMode.HALF_UP);
+	}
+
 }
