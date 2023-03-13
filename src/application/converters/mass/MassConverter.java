@@ -2,15 +2,15 @@ package application.converters.mass;
 
 import java.util.HashMap;
 
-import application.converters.BaseUnitConverter;
+import application.converters.PartialRangeUnitConverter;
 import application.converters.UnitTypeConverter;
 
 public class MassConverter extends UnitTypeConverter {
 
-	private static BaseUnitConverter[] massConverters = new BaseUnitConverter[] { new BaseUnitConverter("Grams", 0.001),
-			new BaseUnitConverter("Kilograms", 1.0), new BaseUnitConverter("Milligrams", 0.000001),
-			new BaseUnitConverter("Metric Tons", 1000), new BaseUnitConverter("Ounces", 0.0283495),
-			new BaseUnitConverter("Pounds", 0.453592), };
+	private static PartialRangeUnitConverter[] massConverters = new PartialRangeUnitConverter[] { new PartialRangeUnitConverter("Grams", 0.001),
+			new PartialRangeUnitConverter("Kilograms", 1.0), new PartialRangeUnitConverter("Milligrams", 0.000001),
+			new PartialRangeUnitConverter("Metric Tons", 1000), new PartialRangeUnitConverter("Ounces", 0.0283495),
+			new PartialRangeUnitConverter("Pounds", 0.453592), };
 
 	public MassConverter() {
 		super("Kilograms", massConverters);
