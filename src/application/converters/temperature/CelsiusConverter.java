@@ -1,8 +1,8 @@
 package application.converters.temperature;
 
-import application.converters.BaseUnitConverter;
+import application.converters.FullRangeBaseUnitConverter;
 
-public class CelsiusConverter extends BaseUnitConverter {
+public class CelsiusConverter extends FullRangeBaseUnitConverter {
 	public CelsiusConverter() {
 		super("Celsius", 1.0);
 	}

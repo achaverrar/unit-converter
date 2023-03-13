@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 import application.InvalidInputException;
-import application.converters.BaseUnitConverter;
+import application.converters.FullRangeBaseUnitConverter;
 
-public class RankineConverter extends BaseUnitConverter {
+public class RankineConverter extends FullRangeBaseUnitConverter {
 
 	public RankineConverter() {
 		super("Rankine");

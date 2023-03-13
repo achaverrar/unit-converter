@@ -2,12 +2,12 @@ package application.converters.temperature;
 
 import java.util.HashMap;
 
-import application.converters.BaseUnitConverter;
+import application.converters.FullRangeBaseUnitConverter;
 import application.converters.UnitTypeConverter;
 
 public class TemperatureConverter extends UnitTypeConverter {
 
-	private static BaseUnitConverter[] temperatureConverters = new BaseUnitConverter[] { new CelsiusConverter(),
+	private static FullRangeBaseUnitConverter[] temperatureConverters = new FullRangeBaseUnitConverter[] { new CelsiusConverter(),
 			new FahrenheitConverter(), new KelvinConverter(), new RankineConverter(), };
 
 	public TemperatureConverter() {
