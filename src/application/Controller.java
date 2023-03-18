@@ -53,6 +53,10 @@ public class Controller {
 	public void initialize() {
 
 		unitTypeMenu.getItems().addAll(allUnitTypeConverters);
+		
+		unitTypeMenu.setCellFactory(new ListItemCellFactory());
+		unitTypeMenu.setButtonCell(new ListItemCell());
+		
 		unitTypeMenu.getSelectionModel().selectFirst();
 		unitTypeMenu.setConverter(new StringConverter<UnitTypeConverter>() {
 
