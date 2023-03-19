@@ -33,6 +33,12 @@ public class Controller {
 	private ComboBox<UnitTypeConverter> unitTypeMenu;
 
 	@FXML
+	private HBox lastUpdatedBox;
+	
+	@FXML
+	private Label date;
+	
+	@FXML
 	private TextField leftTextField;
 
 	@FXML

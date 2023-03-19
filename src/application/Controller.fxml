@@ -13,22 +13,22 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <ComboBox fx:id="unitTypeMenu" layoutX="25.0" layoutY="69.0" onAction="#onUnitTypeChange" prefHeight="30.0" prefWidth="450.0" AnchorPane.topAnchor="30.0" />
-      <TextField fx:id="leftTextField" layoutX="25.0" layoutY="89.0" onKeyTyped="#onLeftTextFieldChange" prefHeight="50.0" prefWidth="200.0">
+      <TextField fx:id="leftTextField" layoutX="25.0" layoutY="144.0" onKeyTyped="#onLeftTextFieldChange" prefHeight="50.0" prefWidth="200.0">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <TextField fx:id="rightTextField" layoutX="275.0" layoutY="89.0" onKeyTyped="#onRightTextFieldChange" prefHeight="50.0" prefWidth="200.0">
+      <TextField fx:id="rightTextField" layoutX="275.0" layoutY="144.0" onKeyTyped="#onRightTextFieldChange" prefHeight="50.0" prefWidth="200.0">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <Label alignment="CENTER" layoutX="242.0" layoutY="97.0" text="⇌">
+      <Label alignment="CENTER" layoutX="242.0" layoutY="152.0" text="⇌">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <StackPane fx:id="hboxStack" layoutX="25.0" layoutY="140.0" prefHeight="64.0" prefWidth="450.0">
+      <StackPane fx:id="hboxStack" layoutX="25.0" layoutY="195.0" prefHeight="64.0" prefWidth="450.0">
          <children>
             <HBox fx:id="otherUnits" prefHeight="64.0" prefWidth="450.0" spacing="50.0">
                <children>
@@ -44,7 +44,7 @@
             </HBox>
          </children>
       </StackPane>
-      <HBox fx:id="errorsHbox" alignment="TOP_CENTER" layoutX="25.0" layoutY="258.0" opacity="0.0" prefWidth="450.0" spacing="10.0">
+      <HBox fx:id="errorsHbox" alignment="TOP_CENTER" layoutX="25.0" layoutY="286.0" opacity="0.0" prefWidth="450.0" spacing="10.0">
          <children>
             <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -56,6 +56,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="lastUpdatedBox" layoutX="28.0" layoutY="95.0" opacity="0.0" spacing="8.0">
+         <children>
+            <Label fx:id="dateUpdate" text="Currencies last updated:" />
+            <Label fx:id="date" text="Label" />
          </children>
       </HBox>
    </children>
