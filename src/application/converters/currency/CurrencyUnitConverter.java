@@ -41,4 +41,9 @@ public class CurrencyUnitConverter extends PartialRangeUnitConverter {
 	public String getCurrencyCode() {
 		return CURRENCY_CODE;
 	}
+	
+	@Override
+	public String getIconName() {
+		return CURRENCY_CODE + ".png";
+	}
 }
