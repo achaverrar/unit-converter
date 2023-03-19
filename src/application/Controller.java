@@ -64,14 +64,14 @@ public class Controller {
 
 	private UnitTypeConverter currencyConverter = new CurrencyConverter();
 	private String currentConversionType = currencyConverter.getUnitType(); 
-	private UnitTypeConverter[] allUnitTypeConverters = new UnitTypeConverter[] {currencyConverter,
+	private UnitTypeConverter[] allConverters = new UnitTypeConverter[] { currencyConverter,
 			new LengthConverter(), new MassConverter(), new SpeedConverter(), new TemperatureConverter(),
 			new TimeConverter(), new VolumeConverter()};
 
 	@FXML
 	public void initialize() {
 
-		unitTypeMenu.getItems().addAll(allUnitTypeConverters);
+		unitTypeMenu.getItems().addAll(allConverters);
 		
 		unitTypeMenu.setCellFactory(new ConversionTypeCellFactory());
 		unitTypeMenu.setButtonCell(new ConversionTypeCell());
@@ -91,26 +91,15 @@ public class Controller {
 		});
 
 		List<BaseUnitConverter> baseUnitConverters = unitTypeMenu.getValue().getBaseUnitConvertersList();
-		leftUnitTypeMenu.getItems().addAll(baseUnitConverters);
-		leftUnitTypeMenu.setCellFactory(new ConversionUnitCellFactory());
-		leftUnitTypeMenu.setButtonCell(new ConversionUnitCell());
-		
-		
-		leftCurrencyMenu.getItems().addAll(currencyConverter.getBaseUnitConvertersList());
-		leftCurrencyMenu.setCellFactory(new ConversionUnitCellFactory());
-		leftCurrencyMenu.setButtonCell(new ConversionUnitCell());
 
-		rightCurrencyMenu.getItems().addAll(currencyConverter.getBaseUnitConvertersList());
-		rightCurrencyMenu.setCellFactory(new ConversionUnitCellFactory());
-		rightCurrencyMenu.setButtonCell(new ConversionUnitCell());
+		leftCurrencyMenu.getItems().addAll(baseUnitConverters);
+		rightCurrencyMenu.getItems().addAll(baseUnitConverters);
 
-
-		rightUnitTypeMenu.getItems().addAll(baseUnitConverters);
-		rightUnitTypeMenu.setCellFactory(new ConversionUnitCellFactory());
-		rightUnitTypeMenu.setButtonCell(new ConversionUnitCell());
-
-		leftUnitTypeMenu.getSelectionModel().select(0);
-		rightUnitTypeMenu.getSelectionModel().select(1);
+		List<ComboBox<BaseUnitConverter>> comboboxes = Arrays.asList(leftUnitTypeMenu, rightUnitTypeMenu, leftCurrencyMenu, rightCurrencyMenu);
+		comboboxes.forEach(combobox ->{
+			combobox.setCellFactory(new ConversionUnitCellFactory());
+			combobox.setButtonCell(new ConversionUnitCell());
+		});
 		
 		leftCurrencyMenu.getSelectionModel().select(0);
 		rightCurrencyMenu.getSelectionModel().select(1);
