@@ -19,4 +19,9 @@ public class TemperatureConverter extends UnitTypeConverter {
 		return "Temperature";
 	}
 
+	@Override
+	public String getIconName() {
+		return "temperature.png";
+	}
+
 }

@@ -68,4 +68,9 @@ public class CurrencyConverter extends UnitTypeConverter {
 		return "Currency";
 	}
 
+	@Override
+	public String getIconName() {
+		return "currency.png";
+	}
+
 }

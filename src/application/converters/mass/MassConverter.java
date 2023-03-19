@@ -21,4 +21,9 @@ public class MassConverter extends UnitTypeConverter {
 		return "Mass";
 	}
 
+	@Override
+	public String getIconName() {
+		return "mass.png";
+	}
+
 }

@@ -67,4 +67,6 @@ public abstract class UnitTypeConverter {
 
 		return newHashMap;
 	}
+	
+	public abstract String getIconName();
 }

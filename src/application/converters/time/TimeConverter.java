@@ -23,4 +23,9 @@ public class TimeConverter extends UnitTypeConverter {
 		return "Time";
 	}
 
+	@Override
+	public String getIconName() {
+		return "time_filled.png";
+	}
+
 }

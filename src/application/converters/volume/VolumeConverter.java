@@ -22,4 +22,9 @@ public class VolumeConverter extends UnitTypeConverter {
 		return "Volume";
 	}
 
+	@Override
+	public String getIconName() {
+		return "volume_filled1.png";
+	}
+
 }

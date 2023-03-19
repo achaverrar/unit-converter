@@ -26,7 +26,7 @@ public class ListItemCell extends ListCell<UnitTypeConverter>{
 			setText(item.getUnitType());
 			/*Shape shape = this.getShape(item);*/
 			//Image image1 = new Image(getClass().getResourceAsStream("colombia.png"));
-			Image image1 = new Image(getClass().getResourceAsStream("/images/flags/COP.png"));
+			Image image1 = new Image(getClass().getResourceAsStream("/images/converters/"+item.getIconName()));
 			ImageView imageView1 = new ImageView(image1);
 			imageView1.setPreserveRatio(true);
 			imageView1.setFitWidth(64); 

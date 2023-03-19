@@ -21,4 +21,9 @@ public class SpeedConverter extends UnitTypeConverter {
 		return "Speed";
 	}
 
+	@Override
+	public String getIconName() {
+		return "speed_filled.png";
+	}
+
 }

@@ -22,4 +22,9 @@ public class LengthConverter extends UnitTypeConverter {
 		return "Length";
 	}
 
+	@Override
+	public String getIconName() {
+		return "length_filled.png";
+	}
+
 }
