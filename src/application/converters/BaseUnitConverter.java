@@ -33,4 +33,7 @@ public abstract class BaseUnitConverter {
 		return this.name;
 	}
 
+	public String getIconName() {
+		return null;
+	}
 }
