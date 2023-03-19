@@ -3,12 +3,14 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <ComboBox fx:id="unitTypeMenu" layoutX="25.0" layoutY="69.0" onAction="#onUnitTypeChange" prefHeight="30.0" prefWidth="450.0" AnchorPane.topAnchor="30.0" />
       <TextField fx:id="leftTextField" layoutX="25.0" layoutY="89.0" onKeyTyped="#onLeftTextFieldChange" prefHeight="50.0" prefWidth="200.0">
@@ -24,11 +26,6 @@
       <Label alignment="CENTER" layoutX="242.0" layoutY="97.0" text="⇌">
          <font>
             <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      <Label fx:id="errorLabel" layoutX="25.0" layoutY="233.0" prefHeight="21.0" prefWidth="450.0" textFill="RED">
-         <font>
-            <Font size="16.0" />
          </font>
       </Label>
       <StackPane fx:id="hboxStack" layoutX="25.0" layoutY="140.0" prefHeight="64.0" prefWidth="450.0">
@@ -47,5 +44,19 @@
             </HBox>
          </children>
       </StackPane>
+      <HBox fx:id="errorsHbox" alignment="TOP_CENTER" layoutX="25.0" layoutY="258.0" opacity="0.0" prefWidth="450.0" spacing="10.0">
+         <children>
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/icons/error_icon.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="errorLabel" contentDisplay="BOTTOM" prefHeight="32.0" prefWidth="418.0" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

@@ -58,6 +58,9 @@ public class Controller {
 	
 	@FXML
 	private ComboBox<BaseUnitConverter> rightCurrencyMenu;
+	
+	@FXML
+	private HBox errorsHbox;
 
 	@FXML
 	private Label errorLabel;
@@ -168,7 +171,7 @@ public class Controller {
 
 	private void convertLeftToRight() {
 		leftTextField.setStyle("-fx-border: none;");
-		errorLabel.setText("");
+		errorsHbox.setOpacity(0);
 		if (leftTextField.getText().isBlank()) {
 			rightTextField.setText("");
 		} else {
@@ -188,6 +191,7 @@ public class Controller {
 				if(!e.getMessage().equals("")) {
 					leftTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
 					errorLabel.setText(e.getMessage());	
+					errorsHbox.setOpacity(1);
 				}
 			}
 		}
@@ -195,7 +199,7 @@ public class Controller {
 
 	private void convertRightToLeft() {
 		rightTextField.setStyle("-fx-border: none;");
-		errorLabel.setText("");
+		errorsHbox.setOpacity(0);
 		if (rightTextField.getText().isBlank()) {
 			leftTextField.setText("");
 		} else {
@@ -214,7 +218,8 @@ public class Controller {
 				leftTextField.setText("");
 				if(!e.getMessage().equals("")) {
 					rightTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
-					errorLabel.setText(e.getMessage());					
+					errorLabel.setText(e.getMessage());
+					errorsHbox.setOpacity(1);
 				}
 			}
 		}
