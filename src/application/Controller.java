@@ -73,7 +73,12 @@ public class Controller {
 
 		List<BaseUnitConverter> baseUnitConverters = unitTypeMenu.getValue().getBaseUnitConvertersList();
 		leftUnitTypeMenu.getItems().addAll(baseUnitConverters);
+		leftUnitTypeMenu.setCellFactory(new ConversionUnitCellFactory());
+		leftUnitTypeMenu.setButtonCell(new ConversionUnitCell());
+		
 		rightUnitTypeMenu.getItems().addAll(baseUnitConverters);
+		rightUnitTypeMenu.setCellFactory(new ConversionUnitCellFactory());
+		rightUnitTypeMenu.setButtonCell(new ConversionUnitCell());
 
 		leftUnitTypeMenu.getSelectionModel().select(0);
 		rightUnitTypeMenu.getSelectionModel().select(1);
