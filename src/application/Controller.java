@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.util.StringConverter;
 
 import java.math.BigDecimal;
@@ -36,6 +37,9 @@ public class Controller {
 
 	@FXML
 	private TextField rightTextField;
+	
+	@FXML
+	private StackPane hboxStack;
 	
 	@FXML
 	private HBox currencyUnits;
