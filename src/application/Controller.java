@@ -63,7 +63,7 @@ public class Controller {
 	private Label errorLabel;
 
 	private UnitTypeConverter currencyConverter = new CurrencyConverter();
-	private UnitTypeConverter[] allUnitTypeConverters = new UnitTypeConverter[] {new CurrencyConverter(),
+	private UnitTypeConverter[] allUnitTypeConverters = new UnitTypeConverter[] {currencyConverter,
 			new LengthConverter(), new MassConverter(), new SpeedConverter(), new TemperatureConverter(),
 			new TimeConverter(), new VolumeConverter()};
 
@@ -90,16 +90,29 @@ public class Controller {
 		});
 
 		List<BaseUnitConverter> baseUnitConverters = unitTypeMenu.getValue().getBaseUnitConvertersList();
-		leftUnitTypeMenu.getItems().addAll(baseUnitConverters);
+		leftUnitTypeMenu.getItems().addAll(currencyConverter.getBaseUnitConvertersList());
 		leftUnitTypeMenu.setCellFactory(new ConversionUnitCellFactory());
 		leftUnitTypeMenu.setButtonCell(new ConversionUnitCell());
 		
+		
+		leftCurrencyMenu.getItems().addAll(currencyConverter.getBaseUnitConvertersList());
+		leftCurrencyMenu.setCellFactory(new ConversionUnitCellFactory());
+		leftCurrencyMenu.setButtonCell(new ConversionUnitCell());
+
+		rightCurrencyMenu.getItems().addAll(baseUnitConverters);
+		rightCurrencyMenu.setCellFactory(new ConversionUnitCellFactory());
+		rightCurrencyMenu.setButtonCell(new ConversionUnitCell());
+
+
 		rightUnitTypeMenu.getItems().addAll(baseUnitConverters);
 		rightUnitTypeMenu.setCellFactory(new ConversionUnitCellFactory());
 		rightUnitTypeMenu.setButtonCell(new ConversionUnitCell());
 
 		leftUnitTypeMenu.getSelectionModel().select(0);
 		rightUnitTypeMenu.getSelectionModel().select(1);
+		
+		leftCurrencyMenu.getSelectionModel().select(0);
+		rightCurrencyMenu.getSelectionModel().select(1);
 
 		StringConverter<BaseUnitConverter> baseUnitStringConverter = new StringConverter<BaseUnitConverter>() {
 
@@ -117,6 +130,9 @@ public class Controller {
 
 		leftUnitTypeMenu.setConverter(baseUnitStringConverter);
 		rightUnitTypeMenu.setConverter(baseUnitStringConverter);
+		
+		leftCurrencyMenu.setConverter(baseUnitStringConverter);
+		rightCurrencyMenu.setConverter(baseUnitStringConverter);
 	}
 
 	// Event handlers
