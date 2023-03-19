@@ -33,16 +33,16 @@
       </Label>
       <StackPane fx:id="hboxStack" layoutX="25.0" layoutY="140.0" prefHeight="64.0" prefWidth="450.0">
          <children>
-            <HBox fx:id="currencyUnits" prefHeight="64.0" prefWidth="450.0" spacing="50.0">
-               <children>
-                  <ComboBox fx:id="leftCurrencyMenu" onAction="#onLeftUnitMenuChange" prefHeight="64.0" prefWidth="200.0" />
-                  <ComboBox fx:id="rightCurrencyMenu" onAction="#onRightUnitMenuChange" prefHeight="64.0" prefWidth="200.0" />
-               </children>
-            </HBox>
             <HBox fx:id="otherUnits" prefHeight="64.0" prefWidth="450.0" spacing="50.0">
                <children>
                   <ComboBox fx:id="leftUnitTypeMenu" onAction="#onLeftUnitMenuChange" prefHeight="64.0" prefWidth="200.0" />
                   <ComboBox fx:id="rightUnitTypeMenu" onAction="#onRightUnitMenuChange" prefHeight="64.0" prefWidth="200.0" />
+               </children>
+            </HBox>
+            <HBox fx:id="currencyUnits" prefHeight="64.0" prefWidth="450.0" spacing="50.0">
+               <children>
+                  <ComboBox fx:id="leftCurrencyMenu" onAction="#onLeftUnitMenuChange" prefHeight="64.0" prefWidth="200.0" />
+                  <ComboBox fx:id="rightCurrencyMenu" onAction="#onRightUnitMenuChange" prefHeight="64.0" prefWidth="200.0" />
                </children>
             </HBox>
          </children>

@@ -148,17 +148,17 @@ public class Controller {
 		if(currentConversionType.equals(currencyConverter.getUnitType())) {
 			leftCurrencyMenu.getSelectionModel().select(0);
 			rightCurrencyMenu.getSelectionModel().select(1);
-			//currencyUnits.toFront();
+			currencyUnits.toFront();
 		} 
-		//else {
+		else {
 			leftUnitTypeMenu.setItems(newBaseConverters);
 			rightUnitTypeMenu.setItems(newBaseConverters);
 			
 			leftUnitTypeMenu.getSelectionModel().select(0);
 			rightUnitTypeMenu.getSelectionModel().select(1);
 			
-			//otherUnits.toFront();
-		//}
+			otherUnits.toFront();
+		}
 	}
 
 	public void onLeftUnitMenuChange(ActionEvent e) {
@@ -185,8 +185,14 @@ public class Controller {
 		} else {
 			UnitTypeConverter unitConverter = unitTypeMenu.getValue();
 			try {
-				BigDecimal rightUnit = unitConverter.convert(leftTextField.getText(), leftUnitTypeMenu.getValue(),
-						rightUnitTypeMenu.getValue());
+				BigDecimal rightUnit = null;
+				if(currentConversionType.equals(currencyConverter.getUnitType()) ) {
+					rightUnit = unitConverter.convert(leftTextField.getText(), leftCurrencyMenu.getValue(),
+							rightCurrencyMenu.getValue());
+				} else {
+					rightUnit = unitConverter.convert(leftTextField.getText(), leftUnitTypeMenu.getValue(),
+							rightUnitTypeMenu.getValue());
+				}
 				rightTextField.setText(rightUnit.stripTrailingZeros().toPlainString());
 			} catch (InvalidInputException e) {
 				rightTextField.setText("");
@@ -206,8 +212,14 @@ public class Controller {
 		} else {
 			try {
 			UnitTypeConverter unitConverter = unitTypeMenu.getValue();
-			BigDecimal leftUnit = unitConverter.convert(rightTextField.getText(), rightUnitTypeMenu.getValue(),
-					leftUnitTypeMenu.getValue());
+			BigDecimal leftUnit = null;
+			if(currentConversionType.equals(currencyConverter.getUnitType()) ) {
+				leftUnit = unitConverter.convert(rightTextField.getText(), rightCurrencyMenu.getValue(),
+						leftCurrencyMenu.getValue());
+			} else {
+				leftUnit = unitConverter.convert(rightTextField.getText(), rightUnitTypeMenu.getValue(),
+						leftUnitTypeMenu.getValue());
+			}
 			leftTextField.setText(leftUnit.stripTrailingZeros().toPlainString());
 			} catch (InvalidInputException e) {
 				leftTextField.setText("");
