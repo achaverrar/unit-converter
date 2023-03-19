@@ -8,6 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
 import javafx.util.StringConverter;
 
 import java.math.BigDecimal;
@@ -35,16 +36,29 @@ public class Controller {
 
 	@FXML
 	private TextField rightTextField;
+	
+	@FXML
+	private HBox currencyUnits;
+	
+	@FXML
+	private HBox otherUnits;
 
 	@FXML
 	private ComboBox<BaseUnitConverter> leftUnitTypeMenu;
 
 	@FXML
 	private ComboBox<BaseUnitConverter> rightUnitTypeMenu;
+	
+	@FXML
+	private ComboBox<BaseUnitConverter> leftCurrencyMenu;
+	
+	@FXML
+	private ComboBox<BaseUnitConverter> rightCurrencyMenu;
 
 	@FXML
 	private Label errorLabel;
 
+	private UnitTypeConverter currencyConverter = new CurrencyConverter();
 	private UnitTypeConverter[] allUnitTypeConverters = new UnitTypeConverter[] {new CurrencyConverter(),
 			new LengthConverter(), new MassConverter(), new SpeedConverter(), new TemperatureConverter(),
 			new TimeConverter(), new VolumeConverter()};
