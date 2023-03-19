@@ -54,8 +54,8 @@ public class Controller {
 
 		unitTypeMenu.getItems().addAll(allUnitTypeConverters);
 		
-		unitTypeMenu.setCellFactory(new ListItemCellFactory());
-		unitTypeMenu.setButtonCell(new ListItemCell());
+		unitTypeMenu.setCellFactory(new ConversionTypeCellFactory());
+		unitTypeMenu.setButtonCell(new ConversionTypeCell());
 		
 		unitTypeMenu.getSelectionModel().selectFirst();
 		unitTypeMenu.setConverter(new StringConverter<UnitTypeConverter>() {

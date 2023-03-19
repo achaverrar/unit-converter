@@ -10,7 +10,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 
-public class ListItemCell extends ListCell<UnitTypeConverter>{
+public class ConversionTypeCell extends ListCell<UnitTypeConverter>{
 	@Override
 	public void updateItem(UnitTypeConverter item, boolean empty)
 	{
