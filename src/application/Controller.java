@@ -71,7 +71,7 @@ public class Controller {
 	@FXML
 	private Label errorLabel;
 
-	private UnitTypeConverter currencyConverter = new CurrencyConverter();
+	private CurrencyConverter currencyConverter = new CurrencyConverter();
 	private String currentConversionType = currencyConverter.getUnitType(); 
 	private UnitTypeConverter[] allConverters = new UnitTypeConverter[] { currencyConverter,
 			new LengthConverter(), new MassConverter(), new SpeedConverter(), new TemperatureConverter(),
@@ -132,6 +132,9 @@ public class Controller {
 		
 		leftCurrencyMenu.setConverter(baseUnitStringConverter);
 		rightCurrencyMenu.setConverter(baseUnitStringConverter);
+		
+		date.setText(currencyConverter.getDate());
+		lastUpdatedBox.setOpacity(1);
 	}
 
 	// Event handlers
@@ -144,11 +147,13 @@ public class Controller {
 		rightTextField.setText("");
 
 		if(currentConversionType.equals(currencyConverter.getUnitType())) {
+			lastUpdatedBox.setOpacity(1);
 			leftCurrencyMenu.getSelectionModel().select(0);
 			rightCurrencyMenu.getSelectionModel().select(1);
 			currencyUnits.toFront();
 		} 
 		else {
+			lastUpdatedBox.setOpacity(0);
 			leftUnitTypeMenu.setItems(newBaseConverters);
 			rightUnitTypeMenu.setItems(newBaseConverters);
 			
