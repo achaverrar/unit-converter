@@ -91,7 +91,7 @@ public class Controller {
 		});
 
 		List<BaseUnitConverter> baseUnitConverters = unitTypeMenu.getValue().getBaseUnitConvertersList();
-		leftUnitTypeMenu.getItems().addAll(currencyConverter.getBaseUnitConvertersList());
+		leftUnitTypeMenu.getItems().addAll(baseUnitConverters);
 		leftUnitTypeMenu.setCellFactory(new ConversionUnitCellFactory());
 		leftUnitTypeMenu.setButtonCell(new ConversionUnitCell());
 		
@@ -100,7 +100,7 @@ public class Controller {
 		leftCurrencyMenu.setCellFactory(new ConversionUnitCellFactory());
 		leftCurrencyMenu.setButtonCell(new ConversionUnitCell());
 
-		rightCurrencyMenu.getItems().addAll(baseUnitConverters);
+		rightCurrencyMenu.getItems().addAll(currencyConverter.getBaseUnitConvertersList());
 		rightCurrencyMenu.setCellFactory(new ConversionUnitCellFactory());
 		rightCurrencyMenu.setButtonCell(new ConversionUnitCell());
 
