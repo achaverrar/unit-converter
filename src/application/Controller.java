@@ -63,6 +63,7 @@ public class Controller {
 	private Label errorLabel;
 
 	private UnitTypeConverter currencyConverter = new CurrencyConverter();
+	private String currentConversionType = currencyConverter.getUnitType(); 
 	private UnitTypeConverter[] allUnitTypeConverters = new UnitTypeConverter[] {currencyConverter,
 			new LengthConverter(), new MassConverter(), new SpeedConverter(), new TemperatureConverter(),
 			new TimeConverter(), new VolumeConverter()};
@@ -140,14 +141,24 @@ public class Controller {
 		ObservableList<BaseUnitConverter> newBaseConverters = FXCollections
 				.observableArrayList(unitTypeMenu.getValue().getBaseUnitConvertersList());
 
+		currentConversionType = unitTypeMenu.getValue().getUnitType();
 		leftTextField.setText("");
 		rightTextField.setText("");
 
-		leftUnitTypeMenu.setItems(newBaseConverters);
-		rightUnitTypeMenu.setItems(newBaseConverters);
-
-		leftUnitTypeMenu.getSelectionModel().select(0);
-		rightUnitTypeMenu.getSelectionModel().select(1);
+		if(currentConversionType.equals(currencyConverter.getUnitType())) {
+			leftCurrencyMenu.getSelectionModel().select(0);
+			rightCurrencyMenu.getSelectionModel().select(1);
+			//currencyUnits.toFront();
+		} 
+		//else {
+			leftUnitTypeMenu.setItems(newBaseConverters);
+			rightUnitTypeMenu.setItems(newBaseConverters);
+			
+			leftUnitTypeMenu.getSelectionModel().select(0);
+			rightUnitTypeMenu.getSelectionModel().select(1);
+			
+			//otherUnits.toFront();
+		//}
 	}
 
 	public void onLeftUnitMenuChange(ActionEvent e) {
