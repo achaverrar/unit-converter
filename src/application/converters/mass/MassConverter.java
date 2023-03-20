@@ -7,18 +7,18 @@ import application.converters.UnitTypeConverter;
 
 public class MassConverter extends UnitTypeConverter {
 
-	private static PartialRangeUnitConverter[] massConverters = new PartialRangeUnitConverter[] { new PartialRangeUnitConverter("Grams", 0.001),
-			new PartialRangeUnitConverter("Kilograms", 1.0), new PartialRangeUnitConverter("Milligrams", 0.000001),
-			new PartialRangeUnitConverter("Metric Tons", 1000), new PartialRangeUnitConverter("Ounces", 0.0283495),
-			new PartialRangeUnitConverter("Pounds", 0.453592), };
+	private static PartialRangeUnitConverter[] massConverters = new PartialRangeUnitConverter[] {
+			new PartialRangeUnitConverter("Gramos", 0.001), new PartialRangeUnitConverter("Kilogramos", 1.0),
+			new PartialRangeUnitConverter("Miligramos", 0.000001), new PartialRangeUnitConverter("Toneladas Métricas", 1000),
+			new PartialRangeUnitConverter("Onzas", 0.0283495), new PartialRangeUnitConverter("Libras", 0.453592), };
 
 	public MassConverter() {
-		super("Kilograms", massConverters);
+		super("Kilogramos", massConverters);
 	}
 
 	@Override
 	public String getUnitType() {
-		return "Mass";
+		return "Masa";
 	}
 
 	@Override
