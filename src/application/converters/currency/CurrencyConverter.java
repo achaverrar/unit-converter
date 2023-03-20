@@ -103,8 +103,10 @@ public class CurrencyConverter extends UnitTypeConverter {
 
 			if (daysDiff == 0) {
 				return "Hoy";
-			} else if (daysDiff > 0 && daysDiff < 7) {
-				return "Hace " + daysDiff + " días.";
+			} else if (daysDiff == 1) {
+				return "Ayer";
+			} else if (daysDiff > 1 && daysDiff < 7) {
+				return "Hace " + daysDiff + " días";
 			} else if (daysDiff == 7) {
 				return "Hace una semana";
 			} else {
