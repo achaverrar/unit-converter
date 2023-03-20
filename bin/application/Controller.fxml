@@ -60,7 +60,7 @@
       </HBox>
       <HBox fx:id="lastUpdatedBox" layoutX="28.0" layoutY="95.0" opacity="0.0" spacing="8.0">
          <children>
-            <Label fx:id="dateUpdate" text="Última actualización:" />
+            <Label fx:id="fixedText" text="Última actualización:" />
             <Label fx:id="date" text="Label" />
          </children>
       </HBox>

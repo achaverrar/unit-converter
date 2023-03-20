@@ -72,7 +72,7 @@ public class Controller {
 	private Label errorLabel;
 
 	private CurrencyConverter currencyConverter = new CurrencyConverter();
-	private String currentConversionType = currencyConverter.getUnitType(); 
+	private String currentConversionType = currencyConverter.getUnitType();
 	private UnitTypeConverter[] allConverters = new UnitTypeConverter[] { currencyConverter,
 			new LengthConverter(), new MassConverter(), new SpeedConverter(), new TemperatureConverter(),
 			new TimeConverter(), new VolumeConverter()};
