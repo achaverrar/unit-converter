@@ -7,6 +7,7 @@
 - [Funcionalidades (Resultado)](#funcionalidades-reto)
 - [Herramientas utilizadas](#herramientas-utilizadas)
 - [Diseño](#diseño)
+- [Agradecimientos](#agradecimientos)
 - [Contacto](#contacto)
 
 ### Descripción del proyecto
@@ -93,10 +94,17 @@ Para el diseño, utilicé:
 Puedes revisar los wireframes y prototipos que diseñé para mi aplicación en [este enlace](https://www.figma.com/file/ZhE1JBQnEJTVCvVy4mZYUv/Untitled?node-id=0%3A1&t=53GhwXhPyHDdtmfI-1).
 
 - Antes de hacer el proceso de diseño:
-![Conversor de unidades antes del diseño](demo.gif)
+  ![Conversor de unidades antes del diseño](demo.gif)
 
 - Después el proceso de diseño:
-![Conversor de unidades después del diseño](demo2.gif)
+  ![Conversor de unidades después del diseño](demo2.gif)
+
+## Agradecimientos
+
+Muchas gracias a
+
+- [Alejandro Vásquez Cordero](https://alejandrovc6467.github.io/Portafolio/) por ayudarme a estructurar la forma de actualizar las tasas de cambio que se usarían en la aplicación, una vez que se han recuperado de la API.
+- [Carlos Andrés Díaz](https://www.linkedin.com/in/andydiar/) por escuchar mis frustraciones, darme ánimo para continuar en todo este proceso y por ayudarme a escoger el prototipo final.
 
 ## Contacto
 
