@@ -8,18 +8,18 @@ import application.converters.UnitTypeConverter;
 public class LengthConverter extends UnitTypeConverter {
 
 	private static PartialRangeUnitConverter[] lengthConverters = new PartialRangeUnitConverter[] {
-			new PartialRangeUnitConverter("Meters", 1.0), new PartialRangeUnitConverter("Centimeters", 0.01),
-			new PartialRangeUnitConverter("Feet", 0.3048), new PartialRangeUnitConverter("Inches", 0.0254),
-			new PartialRangeUnitConverter("Kilometers", 1000), new PartialRangeUnitConverter("Miles", 1609.344),
-			new PartialRangeUnitConverter("Millimeters", 0.001) };
+			new PartialRangeUnitConverter("Metros", 1.0), new PartialRangeUnitConverter("Centímetros", 0.01),
+			new PartialRangeUnitConverter("Pies", 0.3048), new PartialRangeUnitConverter("Pulgadas", 0.0254),
+			new PartialRangeUnitConverter("Kilómetros", 1000), new PartialRangeUnitConverter("Millas", 1609.344),
+			new PartialRangeUnitConverter("Milímetros", 0.001) };
 
 	public LengthConverter() {
-		super("Meters", lengthConverters);
+		super("Metros", lengthConverters);
 	}
 
 	@Override
 	public String getUnitType() {
-		return "Length";
+		return "Longitud";
 	}
 
 	@Override
