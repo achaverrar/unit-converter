@@ -23,9 +23,9 @@
             <Font size="24.0" />
          </font>
       </TextField>
-      <Label alignment="CENTER" layoutX="242.0" layoutY="152.0" text="⇌">
+      <Label fx:id="equalSign" alignment="CENTER" layoutX="239.0" layoutY="172.0" text="=">
          <font>
-            <Font name="System Bold" size="24.0" />
+            <Font size="32.0" />
          </font>
       </Label>
       <StackPane fx:id="hboxStack" layoutX="25.0" layoutY="195.0" prefHeight="64.0" prefWidth="450.0">
