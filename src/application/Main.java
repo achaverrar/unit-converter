@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 
 public class Main extends Application {
 	@Override
@@ -16,6 +17,9 @@ public class Main extends Application {
 			Scene scene = new Scene(root);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setTitle("Convertidor de unidades");
+			
+		    Font.loadFont(getClass().getResourceAsStream("/fonts/Inter-Medium"), 24);
+		    Font.loadFont(getClass().getResourceAsStream("/fonts/Inter-Regular"), 24);
 			
 			Image windowIcon = new Image("icon.png");
 			primaryStage.getIcons().add(windowIcon);
