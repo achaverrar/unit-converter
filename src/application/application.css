@@ -17,6 +17,7 @@
 
 #fixedText, #date {
 	-fx-text-fill: #808FA3;
+	-fx-font-size: 16px;
 }
 
 #equalSign {
