@@ -4,7 +4,7 @@ import application.converters.FullRangeBaseUnitConverter;
 
 public class CelsiusConverter extends FullRangeBaseUnitConverter {
 	public CelsiusConverter() {
-		super("Celsius", 1.0);
+		super("Grados Celsius", 1.0);
 	}
 
 }

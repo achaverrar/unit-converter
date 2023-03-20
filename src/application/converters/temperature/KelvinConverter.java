@@ -9,7 +9,7 @@ import application.converters.FullRangeBaseUnitConverter;
 public class KelvinConverter extends FullRangeBaseUnitConverter {
 
 	public KelvinConverter() {
-		super("Kelvin");
+		super("Grados Kelvin");
 	}
 
 	private static final BigDecimal KELVIN_CONSTANT = new BigDecimal(273.15);

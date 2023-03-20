@@ -9,7 +9,7 @@ import application.converters.FullRangeBaseUnitConverter;
 public class FahrenheitConverter extends FullRangeBaseUnitConverter {
 
 	public FahrenheitConverter() {
-		super("Fahrenheit");
+		super("Grados Fahrenheit");
 	}
 
 	private static final BigDecimal _9_5 = new BigDecimal(1.8);

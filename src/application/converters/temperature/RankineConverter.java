@@ -9,7 +9,7 @@ import application.converters.FullRangeBaseUnitConverter;
 public class RankineConverter extends FullRangeBaseUnitConverter {
 
 	public RankineConverter() {
-		super("Rankine");
+		super("Grados Rankine");
 	}
 
 	private static final BigDecimal RANKINE_CONSTANT = new BigDecimal(491.67);

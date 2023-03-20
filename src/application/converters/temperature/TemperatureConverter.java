@@ -11,12 +11,12 @@ public class TemperatureConverter extends UnitTypeConverter {
 			new FahrenheitConverter(), new KelvinConverter(), new RankineConverter(), };
 
 	public TemperatureConverter() {
-		super("Celsius", temperatureConverters);
+		super("Grados Celsius", temperatureConverters);
 	}
 
 	@Override
 	public String getUnitType() {
-		return "Temperature";
+		return "Temperatura";
 	}
 
 	@Override
