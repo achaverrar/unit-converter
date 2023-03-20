@@ -23,27 +23,27 @@ public class CurrencyConverter extends UnitTypeConverter {
 	private static String baseCurrency = "Pesos Colombianos";
 	private static JSONObject exchangeRates = new JSONObject();
 	private static Date lastUpdateDate;
-	private static String internalDateString = "2023-03-19";
+	private static String internalDateString = "2023-03-20";
 	private static String externalDateString = null;
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	private static CurrencyUnitConverter[] currencyConverters = new CurrencyUnitConverter[] {
 			new CurrencyUnitConverter("Pesos Colombianos", "COP", 1.0),
-			new CurrencyUnitConverter("Pesos Argentinos", "ARS", 0.0398),
-			new CurrencyUnitConverter("Reales Brasileños", "BRL", 0.00108),
-			new CurrencyUnitConverter("Pesos Chilenos", "CLP", 0.162),
-			new CurrencyUnitConverter("Colones Costarricenses", "CRC", 0.117),
-			new CurrencyUnitConverter("Pesos Dominicanos", "DOP", 0.0116),
-			new CurrencyUnitConverter("Euros", "EUR", 0.000192),
-			new CurrencyUnitConverter("Libras Esterlinas", "GBP", 0.00017),
-			new CurrencyUnitConverter("Quetzal Guatemalteco", "GTQ", 0.00162),
-			new CurrencyUnitConverter("Lempiras Hondureños", "HNL", 0.0051),
-			new CurrencyUnitConverter("Yenes", "JPY", 0.0275),
-			new CurrencyUnitConverter("Wons Surcoreanos", "KRW", 0.263),
-			new CurrencyUnitConverter("Pesos Mexicanos", "MXN", 0.00381),
-			new CurrencyUnitConverter("Dolares Estadounidenses", "USD", 0.000207),
-			new CurrencyUnitConverter("Soles (Peruanos)", "PEN", 0.000797),
-			new CurrencyUnitConverter("Balboas", "PAB", 0.000207) };
+			new CurrencyUnitConverter("Pesos Argentinos", "ARS", 0.0419),
+			new CurrencyUnitConverter("Reales Brasileños", "BRL", 0.00109),
+			new CurrencyUnitConverter("Pesos Chilenos", "CLP", 0.17),
+			new CurrencyUnitConverter("Colones Costarricenses", "CRC", 0.113),
+			new CurrencyUnitConverter("Pesos Dominicanos", "DOP", 0.0113),
+			new CurrencyUnitConverter("Euros", "EUR", 0.000193),
+			new CurrencyUnitConverter("Libras Esterlinas", "GBP", 0.000169),
+			new CurrencyUnitConverter("Quetzal Guatemalteco", "GTQ", 0.00161),
+			new CurrencyUnitConverter("Lempiras Hondureños", "HNL", 0.00508),
+			new CurrencyUnitConverter("Yenes", "JPY", 0.0272),
+			new CurrencyUnitConverter("Wons Surcoreanos", "KRW", 0.27),
+			new CurrencyUnitConverter("Pesos Mexicanos", "MXN", 0.00388),
+			new CurrencyUnitConverter("Dolares Estadounidenses", "USD", 0.000206),
+			new CurrencyUnitConverter("Soles (Peruanos)", "PEN", 0.000783),
+			new CurrencyUnitConverter("Balboas", "PAB", 0.000206) };
 
 	public static void updateMULTIPLIERS() {
 		if (exchangeRates == null)
