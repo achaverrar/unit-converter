@@ -135,6 +135,22 @@ public class Controller {
 		
 		date.setText(currencyConverter.getDate());
 		lastUpdatedBox.setOpacity(1);
+		
+		leftTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
+			if(newVal) {
+				highlightLeftRegion("#6BD1FF");				
+			} else {
+				highlightLeftRegion("#316F9B");				
+			}			
+		});
+		
+		rightTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
+			if(newVal) {
+				highlightRightRegion("#6BD1FF");				
+			} else {
+				highlightRightRegion("#316F9B");				
+			}			
+		});
 	}
 
 	// Event handlers
@@ -164,6 +180,7 @@ public class Controller {
 		}
 	}
 
+	
 	public void onLeftUnitMenuChange(ActionEvent e) {
 		convertRightToLeft();
 	}
@@ -181,7 +198,9 @@ public class Controller {
 	}
 
 	private void convertLeftToRight() {
-		leftTextField.setStyle("-fx-border: none;");
+		highlightLeftRegion("#6BD1FF");
+		String prevStyles = leftTextField.getStyle();
+		leftTextField.setStyle("-fx-text-fill: #6BD1FF;" + prevStyles );
 		errorsHbox.setOpacity(0);
 		if (leftTextField.getText().isBlank()) {
 			rightTextField.setText("");
@@ -200,7 +219,9 @@ public class Controller {
 			} catch (InvalidInputException e) {
 				rightTextField.setText("");
 				if(!e.getMessage().equals("")) {
-					leftTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
+					highlightLeftRegion("#F16165");
+					prevStyles = leftTextField.getStyle();
+					leftTextField.setStyle("-fx-text-fill: #F16165;" + prevStyles );
 					errorLabel.setText(e.getMessage());	
 					errorsHbox.setOpacity(1);
 				}
@@ -209,7 +230,9 @@ public class Controller {
 	}
 
 	private void convertRightToLeft() {
-		rightTextField.setStyle("-fx-border: none;");
+		highlightRightRegion("#6BD1FF");
+		String prevStyles = rightTextField.getStyle();
+		rightTextField.setStyle("-fx-text-fill: #6BD1FF;" + prevStyles );
 		errorsHbox.setOpacity(0);
 		if (rightTextField.getText().isBlank()) {
 			leftTextField.setText("");
@@ -228,11 +251,29 @@ public class Controller {
 			} catch (InvalidInputException e) {
 				leftTextField.setText("");
 				if(!e.getMessage().equals("")) {
-					rightTextField.setStyle("-fx-border-color: red; -fx-border-width: 0 0 2 0;");
+					highlightRightRegion("#F16165");
+					prevStyles = rightTextField.getStyle();
+					rightTextField.setStyle("-fx-text-fill: #F16165;" + prevStyles );
 					errorLabel.setText(e.getMessage());
 					errorsHbox.setOpacity(1);
 				}
 			}
 		}
+	}
+	
+	private void highlightLeftRegion(String color) {
+		leftTextField.setStyle("-fx-border-color: " + color + ";");
+		leftCurrencyMenu.setStyle("-fx-background-color: "+ color +", #051D3B, #051D3B, #051D3B;\r\n"
+				+ "	-fx-control-inner-background: #051D3B;");
+		leftUnitTypeMenu.setStyle("-fx-background-color: "+ color +", #051D3B, #051D3B, #051D3B;\r\n"
+				+ "	-fx-control-inner-background: #051D3B;");
+	}
+	
+	private void highlightRightRegion(String color) {
+		rightTextField.setStyle("-fx-border-color: " + color + ";");
+		rightCurrencyMenu.setStyle("-fx-background-color: "+ color +", #051D3B, #051D3B, #051D3B;\r\n"
+				+ "	-fx-control-inner-background: #051D3B;");
+		rightUnitTypeMenu.setStyle("-fx-background-color: "+ color +", #051D3B, #051D3B, #051D3B;\r\n"
+				+ "	-fx-control-inner-background: #051D3B;");
 	}
 }
