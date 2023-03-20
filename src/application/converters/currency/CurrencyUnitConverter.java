@@ -3,8 +3,8 @@ package application.converters.currency;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import application.InvalidInputException;
 import application.converters.PartialRangeUnitConverter;
+import utilities.InvalidInputException;
 
 public class CurrencyUnitConverter extends PartialRangeUnitConverter {
 	private String CURRENCY_CODE;

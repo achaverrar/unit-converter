@@ -11,6 +11,11 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.util.StringConverter;
+import utilities.ConversionTypeCell;
+import utilities.ConversionTypeCellFactory;
+import utilities.ConversionUnitCell;
+import utilities.ConversionUnitCellFactory;
+import utilities.InvalidInputException;
 
 import java.math.BigDecimal;
 import java.util.Arrays;

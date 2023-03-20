@@ -1,4 +1,4 @@
-package application;
+package utilities;
 
 public class InvalidInputException extends Exception {
 

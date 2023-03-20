@@ -3,7 +3,7 @@ package application.converters;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import application.InvalidInputException;
+import utilities.InvalidInputException;
 
 public class FullRangeBaseUnitConverter extends BaseUnitConverter {
 

@@ -4,7 +4,7 @@ package application.converters;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import application.InvalidInputException;
+import utilities.InvalidInputException;
 
 public abstract class BaseUnitConverter {
 	private String name;

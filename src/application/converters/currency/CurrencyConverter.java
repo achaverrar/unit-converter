@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import application.converters.BaseUnitConverter;
 import application.converters.UnitTypeConverter;
+import utilities.Connection;
 
 public class CurrencyConverter extends UnitTypeConverter {
 	private static String baseCurrency = "Pesos Colombianos";

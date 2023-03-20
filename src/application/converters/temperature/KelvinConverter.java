@@ -3,8 +3,8 @@ package application.converters.temperature;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
-import application.InvalidInputException;
 import application.converters.FullRangeBaseUnitConverter;
+import utilities.InvalidInputException;
 
 public class KelvinConverter extends FullRangeBaseUnitConverter {
 
