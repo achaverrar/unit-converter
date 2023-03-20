@@ -26,6 +26,8 @@ public class Main extends Application {
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			primaryStage.maxHeightProperty().bind(primaryStage.heightProperty());
+			primaryStage.minHeightProperty().bind(primaryStage.heightProperty());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
