@@ -9,16 +9,16 @@ import application.converters.UnitTypeConverter;
 public class SpeedConverter extends UnitTypeConverter {
 
 	private static FullRangeBaseUnitConverter[] speedConverters = new FullRangeBaseUnitConverter[] {
-			new FullRangeBaseUnitConverter("Kilometers / Hour", 0.277778), new FullRangeBaseUnitConverter("Knots", 0.514444),
-			new FullRangeBaseUnitConverter("Meters / Second", 1.0), new FullRangeBaseUnitConverter("Miles / Hour", 0.44704), };
+			new FullRangeBaseUnitConverter("Kilómetros / Hora", 0.277778), new FullRangeBaseUnitConverter("Nudos", 0.514444),
+			new FullRangeBaseUnitConverter("Metros / Segundos", 1.0), new FullRangeBaseUnitConverter("Millas / Hora", 0.44704), };
 
 	public SpeedConverter() {
-		super("Meters / Second", speedConverters);
+		super("Metros / Segundos", speedConverters);
 	}
 
 	@Override
 	public String getUnitType() {
-		return "Speed";
+		return "Velocidad";
 	}
 
 	@Override
