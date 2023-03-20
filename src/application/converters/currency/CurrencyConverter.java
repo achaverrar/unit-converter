@@ -20,7 +20,7 @@ import application.converters.BaseUnitConverter;
 import application.converters.UnitTypeConverter;
 
 public class CurrencyConverter extends UnitTypeConverter {
-	private static String baseCurrency = "Colombian Pesos";
+	private static String baseCurrency = "Pesos Colombianos";
 	private static JSONObject exchangeRates = new JSONObject();
 	private static Date lastUpdateDate;
 	private static String internalDateString = "2023-03-19";
@@ -28,21 +28,22 @@ public class CurrencyConverter extends UnitTypeConverter {
 	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	private static CurrencyUnitConverter[] currencyConverters = new CurrencyUnitConverter[] {
-			new CurrencyUnitConverter("Colombian Pesos", "COP", 1.0),
-			new CurrencyUnitConverter("Argentine Pesos", "ARS", 0.0398),
-			new CurrencyUnitConverter("Chilean Pesos", "CLP", 0.162),
-			new CurrencyUnitConverter("Costa Rican Colons", "CRC", 0.117),
-			new CurrencyUnitConverter("Dominican Pesos", "DOP", 0.0116),
+			new CurrencyUnitConverter("Pesos Colombianos", "COP", 1.0),
+			new CurrencyUnitConverter("Pesos Argentinos", "ARS", 0.0398),
+			new CurrencyUnitConverter("Reales Brasileños", "BRL", 0.00108),
+			new CurrencyUnitConverter("Pesos Chilenos", "CLP", 0.162),
+			new CurrencyUnitConverter("Colones Costarricenses", "CRC", 0.117),
+			new CurrencyUnitConverter("Pesos Dominicanos", "DOP", 0.0116),
 			new CurrencyUnitConverter("Euros", "EUR", 0.000192),
-			new CurrencyUnitConverter("British Pounds", "GBP", 0.00017),
-			new CurrencyUnitConverter("Guatemalan Quetzals", "GTQ", 0.00162),
-			new CurrencyUnitConverter("Honduran Lempiras", "HNL", 0.0051),
-			new CurrencyUnitConverter("Japanese Yens", "JPY", 0.0275),
-			new CurrencyUnitConverter("South Korean Wons", "KRW", 0.263),
-			new CurrencyUnitConverter("Mexican Pesos", "MXN", 0.00381),
-			new CurrencyUnitConverter("United States Dollars", "USD", 0.000207),
-			new CurrencyUnitConverter("Peruvian Soles", "PEN", 0.000797),
-			new CurrencyUnitConverter("Panamanian Balboas", "PAB", 0.000207) };
+			new CurrencyUnitConverter("Libras Esterlinas", "GBP", 0.00017),
+			new CurrencyUnitConverter("Quetzal Guatemalteco", "GTQ", 0.00162),
+			new CurrencyUnitConverter("Lempiras Hondureños", "HNL", 0.0051),
+			new CurrencyUnitConverter("Yenes", "JPY", 0.0275),
+			new CurrencyUnitConverter("Wons Surcoreanos", "KRW", 0.263),
+			new CurrencyUnitConverter("Pesos Mexicanos", "MXN", 0.00381),
+			new CurrencyUnitConverter("Dolares Estadounidenses", "USD", 0.000207),
+			new CurrencyUnitConverter("Soles (Peruanos)", "PEN", 0.000797),
+			new CurrencyUnitConverter("Balboas", "PAB", 0.000207) };
 
 	public static void updateMULTIPLIERS() {
 		if (exchangeRates == null)
@@ -101,11 +102,11 @@ public class CurrencyConverter extends UnitTypeConverter {
 			long daysDiff = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
 
 			if (daysDiff == 0) {
-				return "Today";
+				return "Hoy";
 			} else if (daysDiff > 0 && daysDiff < 7) {
-				return daysDiff + " days ago.";
+				return "Hace " + daysDiff + " días.";
 			} else if (daysDiff == 7) {
-				return "A week ago";
+				return "Hace una semana";
 			} else {
 				return sdf.format(lastUpdateDate);
 			}
@@ -118,7 +119,7 @@ public class CurrencyConverter extends UnitTypeConverter {
 
 	@Override
 	public String getUnitType() {
-		return "Currency";
+		return "Divisas";
 	}
 
 	@Override
