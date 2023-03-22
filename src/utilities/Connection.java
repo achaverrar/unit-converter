@@ -106,9 +106,9 @@ public class Connection {
 	
 	public void updateFile() {
 
-		if (jsonFromAPI == null) return;
+		if (jsonFromAPI.isEmpty()) return;
 
-		if (jsonFromFile != null && isFileUpToDate()) return;
+		if (jsonFromFile.isEmpty() && isFileUpToDate()) return;
 
 		writeFileFromJSON(jsonFromAPI);
 	}
