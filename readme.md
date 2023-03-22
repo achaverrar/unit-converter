@@ -6,6 +6,7 @@
 - [Funcionalidades (Reto)](#funcionalidades-reto)
 - [Funcionalidades (Resultado)](#funcionalidades-reto)
 - [Herramientas utilizadas](#herramientas-utilizadas)
+- [¿Cómo ejecutar el proyecto?](#herramientas-utilizadas)
 - [Diseño](#diseño)
 - [Agradecimientos](#agradecimientos)
 - [Contacto](#contacto)
@@ -89,6 +90,30 @@ Para el diseño, utilicé:
 - [SVG Repo](https://www.svgrepo.com/) y el plugin [Iconify](https://www.figma.com/community/plugin/735098390272716381/Iconify) como fuentes de íconos para las imágenes de los menús desplegables.
 - La página de [Alura](https://www.alura.com.br/) como inspiración y base para la tipografía, el ícono de la ventana y la paleta de colores.
 
+## ¿Cómo ejecutar el proyecto?
+
+Solución provisional.
+
+1 - Descarga el archivo unit-converter.zip del repositorio.
+2 - Haz click derecho sobre el archivo y escoge la opción "Extraer aquí"
+![Extraer en una carpeta](./executable/step_2.jpg)
+3 - Abre la carpeta `unit-converter` que se generó tras la extracción.
+![Contenido de la carpeta](./executable/step_3.jpg)
+4 - Haz clic en la barra de direcciones del explorador de archivos y presiona [ Ctrl ] + [ C ] o haz click derecho y selecciona la opción de Copiar, para copiar el path a esa carpeta.
+![Copiar el path a la carpeta](./executable/step_4.jpg)
+5 - Abre el archivo `comando.txt` que está en la carpeta `unit-converter`.
+6 - Reemplaza `PATH` con la dirección que copiaste, seleccionándolo y presionando [ Ctrl ] + [ V ] o haciendo click derecho y escogiendo la opción Pegar.
+![Contenido del archivo comando.txt](./executable/step_5.jpg)
+![Reemplazar el PATH en comando.txt](./executable/step_6.jpg)
+7 - Copia todo el texto en `comando.txt`, presionando [ Ctrl ] + [ A ] y luego [ Ctrl ] + [ C ] o seleccionándolo y haciendo clic derecho y escogiendo la opción Copiar.
+![Copiar el contenido de comando.txt](./executable/step_7.jpg)
+8 - Haz click en la barra de estado y reemplaza el path por `cmd` y luego presiona [ Enter ] o la tecla [ Intro ] para abrir la terminal desde la carpeta `unit-converter`.
+![Copiar el contenido de comando.txt](./executable/step_8.jpg)
+9 - Presiona [ Ctrl ] + [ Insert ] para pegar el comando en la terminal.
+![Pegar el comando en la terminal](./executable/step_9.jpg)
+10 - Presiona la tecla [ Enter ] o [ Intro ] para ejecutar el comando, y listo, la aplicación debería ejecutarse en breve.
+![Ejecutar el comando](./executable/step_10.jpg)
+
 ## Diseño
 
 Puedes revisar los wireframes y prototipos que diseñé para mi aplicación en [este enlace](https://www.figma.com/file/ZhE1JBQnEJTVCvVy4mZYUv/Untitled?node-id=0%3A1&t=53GhwXhPyHDdtmfI-1).
@@ -101,10 +126,10 @@ Puedes revisar los wireframes y prototipos que diseñé para mi aplicación en [
 
 ## Agradecimientos
 
-Muchas gracias a
+Le agradezco de corazón a:
 
 - [Alejandro Vásquez Cordero](https://alejandrovc6467.github.io/Portafolio/) por ayudarme a estructurar la forma de actualizar las tasas de cambio que se usarían en la aplicación, una vez que se han recuperado de la API.
-- [Carlos Andrés Díaz](https://www.linkedin.com/in/andydiar/) por escuchar mis frustraciones, darme ánimo para continuar en todo este proceso y por ayudarme a escoger el prototipo final.
+- [Carlos Andrés Díaz](https://www.linkedin.com/in/andydiar/) por escuchar mis frustraciones, celebrar conmigo mis pequeños avances con este proyecto, darme ánimo para continuar en todo este proceso, y por ayudarme a escoger el diseño final de la interfaz.
 
 ## Contacto
 
