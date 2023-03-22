@@ -1,7 +1,5 @@
 package application.converters.temperature;
 
-import java.util.HashMap;
-
 import application.converters.FullRangeBaseUnitConverter;
 import application.converters.UnitTypeConverter;
 

@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import application.converters.currency.CurrencyUnitConverter;
 import utilities.InvalidInputException;
 
 public abstract class UnitTypeConverter {

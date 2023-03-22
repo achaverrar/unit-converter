@@ -1,8 +1,5 @@
 package application.converters.time;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import application.converters.PartialRangeUnitConverter;
 import application.converters.UnitTypeConverter;
 

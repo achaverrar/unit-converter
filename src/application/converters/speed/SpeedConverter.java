@@ -1,8 +1,5 @@
 package application.converters.speed;
 
-import java.util.HashMap;
-
-import application.converters.BaseUnitConverter;
 import application.converters.FullRangeBaseUnitConverter;
 import application.converters.UnitTypeConverter;
 

@@ -1,7 +1,5 @@
 package application.converters.mass;
 
-import java.util.HashMap;
-
 import application.converters.PartialRangeUnitConverter;
 import application.converters.UnitTypeConverter;
 
