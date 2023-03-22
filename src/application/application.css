@@ -24,6 +24,10 @@
 	-fx-text-fill: #6BD1FF;
 }
 
+#errorLabel {
+	-fx-font-weight: bold;
+}
+
 .combo-box {
 	-fx-background-color: #316F9B, #051D3B, #051D3B, #051D3B;
 	-fx-control-inner-background: #051D3B;
