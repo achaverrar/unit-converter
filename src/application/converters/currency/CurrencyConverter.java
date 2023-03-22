@@ -77,7 +77,6 @@ public class CurrencyConverter extends UnitTypeConverter {
 			updateMULTIPLIERS();
 		}
 		updateDate();
-		getDate();
 	}
 
 	public void updateDate() {
