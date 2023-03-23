@@ -66,7 +66,7 @@ public class CurrencyConverter extends UnitTypeConverter {
 	public CurrencyConverter() {
 		super(baseCurrency, currencyConverters);
 		handleExternalData();
-		if (exchangeRates != null) {
+		if (!exchangeRates.isEmpty()) {
 			updateMULTIPLIERS();
 		}
 		updateDate();
