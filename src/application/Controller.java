@@ -143,17 +143,21 @@ public class Controller {
 		
 		leftTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
 			if(newVal) {
-				highlightLeftRegion("#6BD1FF");				
+				highlightLeftRegion("#6BD1FF");
+				highlightRightRegion("#316F9B");
 			} else {
+				highlightRightRegion("#6BD1FF");
 				highlightLeftRegion("#316F9B");				
 			}			
 		});
 		
 		rightTextField.focusedProperty().addListener((obs, oldVal, newVal) -> {
 			if(newVal) {
-				highlightRightRegion("#6BD1FF");				
+				highlightRightRegion("#6BD1FF");
+				highlightLeftRegion("#316F9B");
 			} else {
-				highlightRightRegion("#316F9B");				
+				highlightLeftRegion("#6BD1FF");
+				highlightRightRegion("#316F9B");			
 			}			
 		});
 	}
