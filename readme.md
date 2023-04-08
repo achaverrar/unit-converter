@@ -25,7 +25,7 @@ El reto consistía en usar Java para crear un conversor de dívisas con una inte
 
 #### Resultado:
 
-![Conversor de unidades](demo2.gif)
+![Conversor de unidades](demo_convertidor.gif)
 
 ### Funcionalidades (Reto)
 
@@ -77,9 +77,9 @@ En adición a los requerimientos propuestos, diseñé una interfaz gráfica comp
 
 Para el desarrollo, utilicé:
 
-- [Java SDK versión 19.0.2](https://www.oracle.com/java/technologies/downloads/), como lenguaje de programación.
-- [Java FX versión 17.0.6](https://openjfx.io/), para implementar la interfaz gráfica.
-- El [paquete Org.JSON](https://github.com/stleary/JSON-java), para manejar los datos que llegaban de la API.
+- [Java SDK versión 11.0.18](https://www.oracle.com/java/technologies/downloads/), como lenguaje de programación.
+- [Java FX versión 17.0.6](https://openjfx.io/), para implementar la interfaz gráfica. Puedes descargarlo desde [este enlace](https://gluonhq.com/products/javafx/).
+- El [paquete Org.JSON](https://github.com/stleary/JSON-java), para manejar los datos que llegaban de la API. Puedes descargar el que usé [en este enlace](https://search.maven.org/remotecontent?filepath=org/json/json/20220924/json-20220924.jar).
 - [Eclipse versión 2022-12 (4.26.0)](https://www.eclipse.org/downloads/), como IDE.
 - [Gluon Scene Builder versión 8.5.0](https://gluonhq.com/products/scene-builder/), para visualizar y agilizar la implementación de la interfaz gráfica.
 - [Git](https://git-scm.com/) y [Github](https://github.com/), para el control de versiones.
@@ -90,11 +90,23 @@ Para el diseño, utilicé:
 - [SVG Repo](https://www.svgrepo.com/) y el plugin [Iconify](https://www.figma.com/community/plugin/735098390272716381/Iconify) como fuentes de íconos para las imágenes de los menús desplegables.
 - La página de [Alura](https://www.alura.com.br/) como inspiración y base para la tipografía, el ícono de la ventana y la paleta de colores.
 
+Para exportar el proyecto como un .jar ejecutable utilicé:
+
+- [IntelliJ IDEA Community Edition 2021.1.3](https://www.jetbrains.com/idea/download/), como IDE. Puedes encontrar los archivos del proyecto, listos para importar en la carpeta [intelliJ-project](/intelliJ-project/) del repositorio.
+- El video-tutorial [How to setup JavaFX 11+ with IntelliJ on Windows [2022]](https://youtu.be/WDaXpDtYk3E) para configurar JavaFX en IntelliJ.
+- El video-tutorial [Export JavaFX 11, 15 or 17 projects into an executable jar file with IntelliJ [2022]](https://youtu.be/F8ahBtXkQzU) para generar el ejecutable.
+
 ## ¿Cómo ejecutar el proyecto?
 
-Solución provisional.
+NOTAS: como mínimo, necesitas tener instalado Java 11 para ejecutar el proyecto correctamente.
 
-1 - Descarga el archivo unit-converter.zip del repositorio.
+Solución óptima:
+1 - Descarga el archivo [unit-converter.jar](./unit-converter.jar) del repositorio.
+2 - Ejecútalo.
+
+Solución provisional:
+
+1 - Descarga el archivo [unit-converter.zip](./unit-converter.zip) del repositorio.
 2 - Haz click derecho sobre el archivo y escoge la opción "Extraer aquí"
 ![Extraer en una carpeta](./executable/step_2.jpg)
 3 - Abre la carpeta `unit-converter` que se generó tras la extracción.

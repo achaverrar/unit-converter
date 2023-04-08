@@ -1,0 +1,85 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');*/
+
+.root {
+	-fx-background-color: linear-gradient(from 50% 100% to 50% 0%, #0A3871, #051933);
+	-fx-font-family: "Inter", serif;
+	-fx-font-weight: 500;
+}
+
+#leftTextField, #rightTextField {
+	-fx-background-color: #051D3B;
+	-fx-text-fill: #6BD1FF;
+	-fx-border-color: #6BD1FF;
+	-fx-border-color: #316F9B;
+	-fx-border-width: 1.5px;
+	-fx-border-radius: 8px 8px 0 0;
+}
+
+#fixedText, #date {
+	-fx-text-fill: #808FA3;
+	-fx-font-size: 16px;
+}
+
+#equalSign {
+	-fx-text-fill: #6BD1FF;
+}
+
+#errorLabel {
+	-fx-font-weight: bold;
+}
+
+.combo-box {
+	-fx-background-color: #316F9B, #051D3B, #051D3B, #051D3B;
+	-fx-control-inner-background: #051D3B;
+	-fx-border-width: 0;
+	-fx-border-color: none;
+	-fx-background-insets: -0.4, 1, 2;
+    -fx-background-radius: 3.4, 2, 2;
+}
+
+.combo-box:hover, .combo-box .list-cell {
+	-fx-cursor: hand;
+}
+
+.combo-box .list-cell {
+	-fx-text-fill: #6BD1FF;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #316F9B;
+    -fx-background-color: #3D8BC2;
+}
+
+.combo-box .arrow-button {
+    -fx-padding: 0 15px 0 0;
+    -fx-size: 5px;
+}
+
+.combo-box-popup .list-view .list-cell {
+	-fx-font-weight: bold;
+}
+.combo-box-popup .list-view {
+	-fx-border-color: #051D3B;
+}
+
+.combo-box-popup .list-view .list-cell:filled:hover {
+    -fx-background-color: #6BD1FF;
+    -fx-text-fill: #051D3B;
+
+}
+
+.combo-box-popup .list-view .list-cell:filled:selected {
+    -fx-text-fill: #051D3B;
+}
+
+#unitTypeMenu {
+	-fx-border-radius: 4px;
+	-fx-border-width: 1px;
+	-fx-border-color: #6BD1FF;
+	-fx-border-color: #255475;
+	-fx-font-size: 18px;
+}
+
+#unitTypeMenu .combo-box-popup .list-view .list-cell {
+	-fx-font-weight: normal;
+}

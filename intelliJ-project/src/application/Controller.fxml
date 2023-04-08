@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="350.0" maxWidth="600.0" minHeight="350.0" minWidth="600.0" prefHeight="350.0" prefWidth="633.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+    <children>
+        <ComboBox fx:id="unitTypeMenu" layoutX="25.0" layoutY="69.0" maxHeight="-Infinity" onAction="#onUnitTypeChange" prefHeight="68.0" prefWidth="450.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="30.0" />
+        <HBox fx:id="lastUpdatedBox" layoutX="25.0" layoutY="131.0" opacity="0.0" spacing="8.0">
+            <children>
+                <Label fx:id="fixedText" text="Última actualización:" />
+                <Label fx:id="date" text="Label" />
+            </children>
+        </HBox>
+        <HBox fx:id="errorsHbox" alignment="TOP_CENTER" layoutX="25.0" layoutY="286.0" opacity="0.0" prefWidth="450.0" spacing="10.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+            <children>
+                <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="NEVER">
+                    <image>
+                        <Image url="@../images/icons/error_icon.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="errorLabel" contentDisplay="BOTTOM" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="32.0" prefWidth="418.0" textFill="RED" HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+        <StackPane layoutX="25.0" layoutY="169.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="550.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0">
+            <children>
+                <Label fx:id="equalSign" alignment="CENTER" text="=" StackPane.alignment="CENTER">
+                    <font>
+                        <Font size="32.0" />
+                    </font>
+                </Label>
+                <VBox maxHeight="94.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="94.0" prefWidth="550.0">
+                    <children>
+                        <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="550.0" spacing="50.0">
+                            <children>
+                                <TextField fx:id="leftTextField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyTyped="#onLeftTextFieldChange" prefHeight="50.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </TextField>
+                                <TextField fx:id="rightTextField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onKeyTyped="#onRightTextFieldChange" prefHeight="50.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </TextField>
+                            </children>
+                        </HBox>
+                        <StackPane fx:id="hboxStack" maxHeight="44.0" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="44.0" prefWidth="550.0">
+                            <children>
+                                <HBox fx:id="otherUnits" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="450.0" spacing="50.0">
+                                    <children>
+                                        <ComboBox fx:id="leftUnitTypeMenu" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onLeftUnitMenuChange" prefHeight="64.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                        <ComboBox fx:id="rightUnitTypeMenu" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onRightUnitMenuChange" prefHeight="64.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                    </children>
+                                </HBox>
+                                <HBox fx:id="currencyUnits" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="44.0" prefWidth="510.0" spacing="50.0">
+                                    <children>
+                                        <ComboBox fx:id="leftCurrencyMenu" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onLeftUnitMenuChange" prefHeight="44.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                        <ComboBox fx:id="rightCurrencyMenu" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onAction="#onRightUnitMenuChange" prefHeight="44.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </StackPane>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </children>
+</AnchorPane>
